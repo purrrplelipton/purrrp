@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "3Dumb";
+  src: url("./assets/3dumb/3Dumb.ttf") format("truetype");
+}
+
+:root {
+  font-size: 10px;
+  --clr-1: #eab2a0;
+  --clr-2: #a76f6f;
+  --clr-3: #435b66;
+  --clr-4: #2d4356;
+  --ff-1: "3Dumb", cursive;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--clr-1);
+  font-family: var(--ff-1);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root {
+  isolation: isolate;
+}
