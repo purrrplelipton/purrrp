@@ -4,7 +4,6 @@
 }
 
 :root {
-  font-size: 10px;
   --clr-1: #eab2a0;
   --clr-2: #a76f6f;
   --clr-3: #435b66;
@@ -15,17 +14,22 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 * {
   margin: 0;
 }
 
+html {
+  box-sizing: border-box;
+}
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background-color: var(--clr-1);
+  color: var(--clr-4);
   font-family: var(--ff-1);
 }
 
@@ -57,4 +61,17 @@ h6 {
 
 #root {
   isolation: isolate;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
