@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "3Dumb";
-  src: url("./assets/3dumb/3Dumb.ttf") format("truetype");
+  font-family: "2Dumb";
+  src: url("./assets/3Dumb/2Dumb.ttf") format("truetype");
 }
 
 :root {
@@ -8,17 +8,19 @@
   --clr-2: #a76f6f;
   --clr-3: #435b66;
   --clr-4: #2d4356;
-  --ff-1: "3Dumb", cursive;
+  --ff-1: "2Dumb", cursive;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
   margin: 0;
+  letter-spacing: 1px;
 }
 
 html {
@@ -31,6 +33,7 @@ body {
   background-color: var(--clr-1);
   color: var(--clr-4);
   font-family: var(--ff-1);
+  margin: 64px 0 0;
 }
 
 img,

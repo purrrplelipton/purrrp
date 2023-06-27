@@ -1,12 +1,13 @@
 import { Drawer } from "@components/drawer";
 import { Footer } from "@components/footer";
 import { Header } from "@components/header";
-import React from "react";
+import { Summary } from "@components/summary";
 
 const Home = () => {
   return (
     <>
       <Header />
+      <Summary />
       <Drawer />
       <Footer />
     </>

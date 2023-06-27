@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 import "./backdrop.css";
 
-const Backdrop = ({ zIndex, onClick }) => {
+const Backdrop = ({ zIndex, onClick, className }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.keyCode === 27) onClick();
@@ -19,8 +20,15 @@ const Backdrop = ({ zIndex, onClick }) => {
       role={"presentation"}
       tabIndex={-1}
       aria-label={"Backdrop"}
+      className={className ? className : null}
     />
   );
+};
+
+Backdrop.propTypes = {
+  zIndex: PropTypes.number,
+  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default Backdrop;

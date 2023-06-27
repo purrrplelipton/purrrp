@@ -1,6 +1,6 @@
 import { Contexts } from "@components/context";
 import MenuIcon from "@mui/icons-material/Menu";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 
