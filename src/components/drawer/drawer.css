@@ -20,6 +20,7 @@
 
 .drawer-link {
   display: block;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 12px 0;
 }

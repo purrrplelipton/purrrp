@@ -1,14 +1,27 @@
 @font-face {
+  font-family: "3Dumb";
+  src: url("./assets/3Dumb/3Dumb.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "2Dumb";
   src: url("./assets/3Dumb/2Dumb.ttf") format("truetype");
 }
 
 :root {
+  box-sizing: border-box;
+
   --clr-1: #eab2a0;
   --clr-2: #a76f6f;
   --clr-3: #435b66;
   --clr-4: #2d4356;
+
   --ff-1: "2Dumb", cursive;
+  --ff-2: "3Dumb", cursive;
+
+  background-color: var(--clr-1);
+  color: var(--clr-4);
+  font-family: var(--ff-1);
 }
 
 *,
@@ -16,6 +29,7 @@
 *::after {
   box-sizing: inherit;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: 1px solid red;
 }
 
 * {
@@ -23,16 +37,9 @@
   letter-spacing: 1px;
 }
 
-html {
-  box-sizing: border-box;
-}
-
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--clr-1);
-  color: var(--clr-4);
-  font-family: var(--ff-1);
   margin: 64px 0 0;
 }
 
@@ -64,7 +71,7 @@ h6 {
 
 #root {
   isolation: isolate;
-  max-width: 1200px;
+  max-width: 2560px;
   margin: 0 auto;
 }
 
@@ -77,4 +84,9 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+abbr[title] {
+  text-decoration: none;
+  background-color: hsla(208, 31%, 26%, 0.3);
 }

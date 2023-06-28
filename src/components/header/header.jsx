@@ -1,5 +1,4 @@
 import { Contexts } from "@components/context";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
@@ -10,7 +9,7 @@ const Header = () => {
   return (
     <header className={"header"}>
       <Link href={"/"} className={"header-link"}>
-        Tobi
+        Oluwatobiloba
       </Link>
       <button
         type="button"
@@ -19,7 +18,7 @@ const Header = () => {
         title={"Drawer Toggle"}
         aria-label={drawerIsOpen ? "Close drawer" : "Open drawer"}
       >
-        <MenuIcon color={"inherit"} />
+        {/* <i data-feather={"menu"} /> */}
       </button>
     </header>
   );

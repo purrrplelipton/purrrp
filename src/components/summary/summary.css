@@ -1,2 +1,29 @@
-.banner {
+.summary {
+  padding: 1rem 0.75rem;
+}
+
+/* .summary p {} */
+
+/* .summary h1 {} */
+
+.summary h2 {
+  font-size: 1.25rem;
+  font-weight: lighter;
+  margin-bottom: 1.25em;
+  opacity: 0.85;
+}
+
+.summary div {
+  font-size: 1rem;
+}
+
+/* .summary div p {} */
+
+.summary div a {
+  display: block;
+  margin-top: 4rem;
+  padding: 0.75rem;
+  border: 1px solid;
+  border-radius: 0.3rem;
+  text-align: center;
 }

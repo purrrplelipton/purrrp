@@ -1,12 +1,11 @@
 import { Backdrop } from "@components/backdrop";
 import { Contexts } from "@components/context";
-import CloseIcon from "@mui/icons-material/Close";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./drawer.css";
 
 const links = [
-  { exact: true, path: "/", label: "Tobi" },
+  { exact: true, path: "/", label: "Oluwatobiloba" },
   { path: "/about", label: "About" },
   { path: "/experience", label: "Experience" },
   { path: "/works", label: "Works" },
@@ -16,28 +15,15 @@ const links = [
 
 const Drawer = () => {
   const { drawerIsOpen, setDrawerIsOpen } = useContext(Contexts);
-  const [isClosing, setIsClosing] = useState(false);
-
-  useEffect(() => {
-    if (!drawerIsOpen) {
-      setIsClosing(true);
-      const timeout = setTimeout(() => setIsClosing(false), 300);
-      return () => clearTimeout(timeout);
-    }
-  }, [drawerIsOpen]);
 
   return (
     <>
       {drawerIsOpen && (
         <>
           {drawerIsOpen && (
-            <Backdrop
-              zIndex={30}
-              onClick={() => setDrawerIsOpen(false)}
-              className={isClosing ? "fade" : ""}
-            />
+            <Backdrop zIndex={30} onClick={() => setDrawerIsOpen(false)} />
           )}
-          <aside className={`drawer${isClosing ? " closed" : ""}`}>
+          <aside className={`drawer${drawerIsOpen ? "" : " closed"}`}>
             <nav className={"drawer-nav"}>
               {links.map((link, index) => (
                 <NavLink
@@ -60,7 +46,7 @@ const Drawer = () => {
               onClick={() => setDrawerIsOpen(false)}
               className={"hidden-close-drawer-btn"}
             >
-              <CloseIcon color={"inherit"} />
+              {/* <i data-feather={"x"} /> */}
             </button>
           </aside>
         </>
