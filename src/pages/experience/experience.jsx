@@ -1,5 +1,13 @@
+import { Drawer, Footer, Header } from "@components/common";
+
 const Experience = () => {
-  return <div>Experience</div>;
+  return (
+    <>
+      <Header />
+      <Drawer />
+      <Footer />
+    </>
+  );
 };
 
 export default Experience;

@@ -18,7 +18,7 @@ const Summary = () => {
           with 3+ years of hobbyist experience and 1+ year of professional
           experience in the frontend space
         </p>
-        <a href="mailto:immanueltoby@gmail.com">Get in touch</a>
+        <a href="mailto:immanueltoby@gmail.com">Let&apos;s Talk</a>
       </div>
     </div>
   );

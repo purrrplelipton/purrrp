@@ -1,5 +1,6 @@
 .summary {
   padding: 1rem 0.75rem;
+  height: calc(100% - 64px);
 }
 
 /* .summary p {} */
@@ -10,7 +11,8 @@
   font-size: 1.25rem;
   font-weight: lighter;
   margin-bottom: 1.25em;
-  opacity: 0.85;
+  opacity: 0.75;
+  text-decoration: underline dotted;
 }
 
 .summary div {
@@ -21,9 +23,10 @@
 
 .summary div a {
   display: block;
-  margin-top: 4rem;
-  padding: 0.75rem;
-  border: 1px solid;
-  border-radius: 0.3rem;
+  margin-top: 6em;
+  padding: 0.75em;
+  border: 1px solid rgba(45 67 86 / 0.4);
+  background-color: hsl(15, 64%, 74%);
+  border-radius: 0.5em;
   text-align: center;
 }

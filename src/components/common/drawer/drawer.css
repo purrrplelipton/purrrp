@@ -1,0 +1,76 @@
+.drawer {
+  position: fixed;
+  left: 38%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  background-color: var(--clr-4);
+  color: var(--clr-1);
+}
+
+.drawer.closed {
+  transform: translateX(100%);
+  visibility: hidden;
+}
+
+.drawer div:has(.close-drawer-btn) {
+  height: 64px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid rgba(234 178 160 / 0.4);
+}
+
+.drawer div:has(.close-drawer-btn) .close-drawer-btn {
+  border-width: 0;
+  background: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  margin: 0 1rem 0 0;
+}
+
+.drawer .drawer-nav {
+  font-size: 1.25rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5em;
+  padding: 1rem 2.5rem;
+}
+
+.drawer .drawer-nav .drawer-link {
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 3px 9px;
+  padding-left: calc(9px + 0.4em);
+  position: relative;
+}
+
+.drawer .drawer-nav .drawer-link::after {
+  position: absolute;
+  content: ".";
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: var(--ff-2);
+  left: -0.4em;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 0.4em;
+}
+
+.drawer .drawer-link.resume {
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: hsl(208, 31%, 20%);
+  margin: 6em auto 0;
+  padding: 0.5em 1.25em;
+  border-radius: 0.5em;
+}

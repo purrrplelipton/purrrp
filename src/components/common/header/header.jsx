@@ -1,4 +1,5 @@
 import { Contexts } from "@components/context";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
@@ -18,7 +19,9 @@ const Header = () => {
         title={"Drawer Toggle"}
         aria-label={drawerIsOpen ? "Close drawer" : "Open drawer"}
       >
-        {/* <i data-feather={"menu"} /> */}
+        <Bars3Icon
+          style={{ height: "1.5rem", width: "1.5rem", color: "var(--clr-4)" }}
+        />
       </button>
     </header>
   );

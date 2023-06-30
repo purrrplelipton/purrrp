@@ -1,14 +1,12 @@
-import { Drawer } from "@components/drawer";
-import { Footer } from "@components/footer";
-import { Header } from "@components/header";
-import { Summary } from "@components/summary";
+import { Drawer, Footer, Header } from "@components/common";
+import { Summary } from "@components/home/summary";
 
 const Home = () => {
   return (
     <>
       <Header />
-      <Summary />
       <Drawer />
+      <Summary />
       <Footer />
     </>
   );

@@ -1,5 +1,13 @@
+import { Drawer, Footer, Header } from "@components/common";
+
 const Works = () => {
-  return <div>Works</div>;
+  return (
+    <>
+      <Header />
+      <Drawer />
+      <Footer />
+    </>
+  );
 };
 
 export default Works;
