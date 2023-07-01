@@ -1,6 +1,6 @@
 .summary {
-  padding: 1rem 0.75rem;
-  height: calc(100% - 64px);
+  padding: 3rem 1.25rem;
+  /* height: calc(100% - 64px); */
 }
 
 /* .summary p {} */

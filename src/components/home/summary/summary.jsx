@@ -16,7 +16,10 @@ const Summary = () => {
             10x software engineer
           </abbr>{" "}
           with 3+ years of hobbyist experience and 1+ year of professional
-          experience in the frontend space
+          experience in the frontend space.
+          <br />
+          <br />I like to think I&apos;m a master at perfecting the
+          imperfections of perfection, makes me sleep at night :)
         </p>
         <a href="mailto:immanueltoby@gmail.com">Let&apos;s Talk</a>
       </div>

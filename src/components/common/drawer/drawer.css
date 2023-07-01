@@ -19,8 +19,20 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   border-bottom: 1px solid rgba(234 178 160 / 0.4);
+  padding: 0 1rem;
+}
+
+.drawer div:has(.close-drawer-btn) a {
+  border-radius: 50%;
+  padding: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .drawer div:has(.close-drawer-btn) {
+    height: 96px;
+  }
 }
 
 .drawer div:has(.close-drawer-btn) .close-drawer-btn {
@@ -30,7 +42,6 @@
   display: grid;
   place-items: center;
   padding: 8px;
-  margin: 0 1rem 0 0;
 }
 
 .drawer .drawer-nav {
@@ -48,8 +59,9 @@
   width: -moz-fit-content;
   width: fit-content;
   padding: 3px 9px;
-  padding-left: calc(9px + 0.4em);
+  margin-left: 0.4em;
   position: relative;
+  border-radius: 4px;
 }
 
 .drawer .drawer-nav .drawer-link::after {
@@ -59,10 +71,9 @@
   place-items: center;
   text-align: center;
   font-family: var(--ff-2);
-  left: -0.4em;
+  left: -0.8em;
   top: 50%;
   transform: translateY(-50%);
-  margin: 0 0.4em;
 }
 
 .drawer .drawer-link.resume {

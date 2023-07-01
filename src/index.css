@@ -29,7 +29,7 @@
 *::after {
   box-sizing: inherit;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   cursor: url(./assets/cursor.cur), auto;
 }
 
@@ -44,6 +44,15 @@ body {
   min-width: 320px;
   max-width: 2560px;
   margin: 0 auto;
+  margin-top: 64px;
+  min-height: calc(100vh - 64px);
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    margin-top: 96px;
+    min-height: calc(100vh - 96px);
+  }
 }
 
 img,
@@ -74,13 +83,7 @@ h6 {
 
 #root {
   isolation: isolate;
-  padding-top: 64px;
-}
-
-@media (min-width: 768px) {
-  #root {
-    padding-top: 96px;
-  }
+  min-height: inherit;
 }
 
 ul,
@@ -102,7 +105,7 @@ abbr[title] {
 
 a.active {
   position: relative;
-  border-bottom: 1px dotted;
+  background-color: rgba(234 178 160 / 0.1);
 }
 
 a.active::before {
