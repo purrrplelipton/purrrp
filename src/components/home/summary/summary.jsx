@@ -3,7 +3,7 @@ import "./summary.css";
 const Summary = () => {
   return (
     <div className={"summary"}>
-      <p>Hey there! I&apos;m</p>
+      <p>Hey there! I am</p>
       <h1>Emmanuel Adeyeye.</h1>
       <h2>
         My focus is on utilizing technology to create solutions that cater to

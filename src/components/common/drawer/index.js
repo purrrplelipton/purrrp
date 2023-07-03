@@ -1,3 +1,3 @@
-import Drawer from "./drawer";
+import { Drawer, links } from "./drawer";
 
-export { Drawer };
+export { links, Drawer };
