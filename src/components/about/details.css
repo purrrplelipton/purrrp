@@ -48,7 +48,7 @@
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   font-size: 0.8em;
-  gap: 0.5em;
+  gap: 0.5em 0;
   margin: 1.2em 0;
 }
 
@@ -77,6 +77,31 @@
   border-radius: 0.6em 50% 0.6em 50%;
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-backdrop-filter: blur(0.8em);
+  backdrop-filter: blur(0.8em);
+  display: grid;
+  place-items: center;
+}
+
+.modal-content {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.modal-image {
+  border-radius: 0.8em;
+  max-width: 90vw;
+  max-height: 90vh;
+  cursor: none;
+}
+
 @media screen and (min-width: 768px) {
   .details {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -101,7 +126,6 @@
 
   .details .about-me .technologies ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 0;
   }
 
   .details .my-pic {

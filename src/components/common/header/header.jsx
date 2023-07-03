@@ -26,10 +26,10 @@ const Header = () => {
           </NavLink>
         ))}
         <a
-          href="https://docs.google.com/document/d/1sveStIKJSgAD_EJeVN73b5VNFIghZPtxoPzux7osuZs/edit?usp=sharing"
+          href="https://profile.indeed.com/p/immanuelt-dq6697p"
           target="_blank"
           rel="noopener noreferrer"
-          className="nav-link"
+          className="nav-link resume"
         >
           My Resume
         </a>

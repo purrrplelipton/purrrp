@@ -19,7 +19,13 @@ const Summary = () => {
           experience in the frontend space.
           <br />
           <br />I like to think I&apos;m a master at perfecting the
-          imperfections of perfection, makes me sleep at night :)
+          imperfections of perfection, makes me sleep at night{" "}
+          <span
+            className="smiley"
+            style={{ display: "inline-block", transform: "rotate(90deg)" }}
+          >
+            {":)"}
+          </span>
         </p>
         <a href="mailto:immanueltoby@gmail.com">Let&apos;s Talk</a>
       </div>

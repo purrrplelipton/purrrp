@@ -10,6 +10,10 @@
   color: var(--clr-1);
 }
 
+body:has(aside[class="drawer"]) {
+  overflow: hidden;
+}
+
 .drawer.closed {
   transform: translateX(100%);
   visibility: hidden;
@@ -23,20 +27,6 @@
   justify-content: flex-end;
   border-bottom: 1px solid rgba(234 178 160 / 0.4);
   padding-inline: 1em;
-}
-
-@media screen and (min-width: 768px) {
-  .drawer header {
-    height: 4em;
-    padding-inline: 1.6em;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .drawer header {
-    height: 4.8em;
-    padding-inline: 2em;
-  }
 }
 
 .drawer header .close-drawer-btn {
@@ -59,6 +49,7 @@
 }
 
 .drawer .drawer-nav div {
+  width: 100%;
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
@@ -90,4 +81,26 @@
   padding: 0.5em 1.25em;
   border-radius: 0.5em;
   align-self: center;
+}
+
+@media screen and (min-width: 768px) {
+  .drawer header {
+    height: 4em;
+    padding-inline: 1.6em;
+  }
+
+  .drawer .drawer-nav div {
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .drawer {
+    display: none;
+  }
+
+  .drawer header {
+    height: 4.8em;
+    padding-inline: 2em;
+  }
 }
