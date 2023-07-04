@@ -15,14 +15,17 @@
   font-size: 1.2em;
   font-weight: lighter;
   margin-bottom: 1em;
-  /* opacity: 0.75; */
+  max-width: 23em;
 }
 
-/* .summary div {} */
+.summary div {
+  max-width: 44em;
+}
 
 /* .summary div p {} */
 
 .summary div a {
+  font-size: 0.8em;
   display: block;
   margin-top: 8em;
   padding: 0.6em;
@@ -30,4 +33,26 @@
   background-color: hsl(15, 64%, 74%);
   border-radius: 0.4em;
   text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .summary {
+    padding: 5.6em 7em;
+  }
+
+  .summary p {
+    font-size: 1em;
+  }
+
+  .summary h1 {
+    font-size: 3.2em;
+  }
+
+  .summary h2 {
+    font-size: 2em;
+  }
+
+  .summary div a {
+    font-size: 1em;
+  }
 }

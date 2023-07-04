@@ -1,5 +1,5 @@
 import { Details } from "@components/about";
-import { Drawer, Footer, Header } from "@components/common";
+import { Drawer, Header } from "@components/common";
 
 const About = () => {
   return (
@@ -7,7 +7,6 @@ const About = () => {
       <Header />
       <Details />
       <Drawer />
-      <Footer />
     </>
   );
 };

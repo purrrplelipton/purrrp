@@ -1,6 +1,6 @@
+import { XMark } from "@assets/vectors";
 import { Backdrop } from "@components/common";
 import { Contexts } from "@components/context";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./drawer.css";
@@ -14,12 +14,6 @@ const links = [
 
 const Drawer = () => {
   const { drawerIsOpen, setDrawerIsOpen } = useContext(Contexts);
-
-  const heroIconStyle = {
-    width: "1.5rem",
-    height: "1.5rem",
-    color: "var(--clr-1)",
-  };
 
   return (
     <>
@@ -37,7 +31,7 @@ const Drawer = () => {
                 className={"close-drawer-btn"}
                 autoFocus
               >
-                <XMarkIcon style={heroIconStyle} />
+                <XMark fill="var(--clr-1)" />
               </button>
             </header>
             <nav className={"drawer-nav"}>
@@ -56,7 +50,7 @@ const Drawer = () => {
                 ))}
               </div>
               <a
-                href="https://docs.google.com/document/d/1sveStIKJSgAD_EJeVN73b5VNFIghZPtxoPzux7osuZs/edit?usp=sharing"
+                href="https://profile.indeed.com/p/immanuelt-dq6697p"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="drawer-link resume"

@@ -1,5 +1,5 @@
+import { Bars } from "@assets/vectors";
 import { Contexts } from "@components/context";
-import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { links } from "../drawer/drawer";
@@ -26,10 +26,10 @@ const Header = () => {
           </NavLink>
         ))}
         <a
-          href="https://docs.google.com/document/d/1sveStIKJSgAD_EJeVN73b5VNFIghZPtxoPzux7osuZs/edit?usp=sharing"
+          href="https://profile.indeed.com/p/immanuelt-dq6697p"
           target="_blank"
           rel="noopener noreferrer"
-          className="nav-link"
+          className="nav-link resume"
         >
           My Resume
         </a>
@@ -41,9 +41,7 @@ const Header = () => {
         title={"Drawer Toggle"}
         aria-label={drawerIsOpen ? "Close drawer" : "Open drawer"}
       >
-        <Bars3Icon
-          style={{ height: "1.2em", width: "1.2em", color: "var(--clr-4)" }}
-        />
+        <Bars fill="var(--clr-4)" />
       </button>
     </header>
   );

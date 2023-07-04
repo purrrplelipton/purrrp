@@ -1,0 +1,74 @@
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.footer .content {
+  position: relative;
+}
+
+.footer .content .socials {
+  font-size: 1.6em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  margin: 1.5em;
+  gap: 0.6em;
+}
+
+.footer .content .socials a {
+  width: 1em;
+  height: 1em;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(-15deg) scale(1.25);
+  }
+  40% {
+    transform: rotate(15deg) scale(1.25);
+  }
+  60% {
+    transform: rotate(-15deg) scale(1.25);
+  }
+  80% {
+    transform: rotate(15deg) scale(1.25);
+  }
+  100% {
+    transform: rotate(0) scale(1.25);
+  }
+}
+
+.footer .content .socials a:hover {
+  animation: shake 0.4s both;
+}
+
+.footer .content .mail-section {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 2.4em;
+}
+
+.footer .content .mail-section a {
+  display: inline-grid;
+  grid-auto-flow: row;
+  font-size: 0.8em;
+}
+
+.footer .content .mail-section a span {
+  display: inline-block;
+  margin-bottom: -0.625em;
+}
+
+@media screen and (max-width: 1023px) {
+  .footer {
+    display: none;
+  }
+}

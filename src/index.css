@@ -32,6 +32,8 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   /* outline: 1px solid red; */
   cursor: url(./assets/cursor.cur), auto;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 * {
@@ -43,7 +45,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   min-width: 320px;
-  max-width: 2560px;
+  max-width: 1440px;
   margin: 0 auto;
   margin-top: 64px;
   min-height: calc(100vh - 64px);
@@ -134,7 +136,6 @@ a.active::after {
   left: 90%;
   transform: translateY(-50%) rotate(-45deg);
   padding: 2px 6px;
-  /* background-color: var(--clr-4); */
   -webkit-backdrop-filter: blur(1px);
   backdrop-filter: blur(1px);
   border-radius: 0.6em;
