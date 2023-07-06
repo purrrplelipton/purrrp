@@ -8,7 +8,7 @@ import "./drawer.css";
 const links = [
   { path: "/about-me", label: "About Me" },
   { path: "/experience", label: "Experience" },
-  { path: "/projects", label: "Projects" },
+  { path: "/works", label: "Works" },
   { path: "/reach-out", label: "Reach Out" },
 ];
 

@@ -1,8 +1,8 @@
 import { Bars } from "@assets/vectors";
+import { links } from "@components/common/drawer";
 import { Contexts } from "@components/context";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { links } from "../drawer/drawer";
 import "./header.css";
 
 const Header = () => {

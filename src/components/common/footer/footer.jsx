@@ -4,27 +4,27 @@ import "./footer.css";
 const socials = [
     {
       link: "https://github.com/purrrplelipton/",
-      icon: <GitHub fill={"var(--clr-4)"} />,
+      icon: <GitHub />,
       label: "GitHub",
     },
     {
       link: "https://codepen.io/purrrplelipton/",
-      icon: <Codepen fill={"var(--clr-4)"} />,
+      icon: <Codepen />,
       label: "Codepen",
     },
     {
       link: "https://twitter.com/purrrplelipton/",
-      icon: <Twitter fill={"var(--clr-4)"} />,
+      icon: <Twitter />,
       label: "Twitter",
     },
     {
       link: "https://linkedin.com/in/purrrplelipton/",
-      icon: <LinkedIn fill={"var(--clr-4)"} />,
+      icon: <LinkedIn />,
       label: "LinkedIn",
     },
     {
       link: "https://instagram.com/purrrple.lipton/",
-      icon: <Instagram fill={"var(--clr-4)"} />,
+      icon: <Instagram />,
       label: "Instagram",
     },
   ],
