@@ -1,11 +1,13 @@
 @font-face {
   font-family: "3Dumb";
   src: url("./assets/3Dumb/3Dumb.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "2Dumb";
   src: url("./assets/3Dumb/2Dumb.ttf") format("truetype");
+  font-display: swap;
 }
 
 :root {
@@ -72,11 +74,6 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
-}
-
-svg {
-  color: inherit;
-  fill: currentColor;
 }
 
 input,

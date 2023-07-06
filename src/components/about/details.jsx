@@ -1,4 +1,4 @@
-import toby$me from "@assets/images/toby.jpg";
+import { TobyAvif, TobyWebp } from "@assets/images";
 import { useState } from "react";
 import "./details.css";
 
@@ -60,21 +60,32 @@ const Details = () => {
             </ul>
           </div>
         </div>
-        <img
-          src={toby$me}
-          alt="an headshot image of me"
-          onClick={() => setImgOpen(true)}
-          className={imgOpen ? "my-pic enlarged" : "my-pic"}
-        />
+        <picture>
+          <source srcSet={TobyAvif} type="image/avif" />
+          <source srcSet={TobyWebp} type="image/webp" />
+          <img
+            src={TobyAvif}
+            alt="an headshot image of me"
+            loading="lazy"
+            className={imgOpen ? "my-pic enlarged" : "my-pic"}
+            onClick={() => setImgOpen(true)}
+          />
+        </picture>
       </section>
       {imgOpen && (
         <div className="modal-overlay" onClick={() => setImgOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={toby$me}
-              alt={"an headshot image of me"}
-              className="modal-image"
-            />
+            <picture>
+              <source srcSet={TobyAvif} type="image/avif" />
+              <source srcSet={TobyWebp} type="image/webp" />
+              <img
+                src={TobyAvif}
+                alt="an headshot image of me"
+                loading="lazy"
+                className={"modal-image"}
+                onClick={() => setImgOpen(true)}
+              />
+            </picture>
           </div>
         </div>
       )}

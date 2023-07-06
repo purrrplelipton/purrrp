@@ -1,6 +1,9 @@
-import KwikNotes from "@assets/images/kwik-notes.onrender.png";
-import { React } from "@assets/vectors";
-import { NodeJS } from "../../assets/vectors";
+import { KwikNotesAvif, KwikNotesWebp } from "@assets/images";
+import {
+  TablerBrandMongoDB,
+  TablerBrandNodeJS,
+  TablerBrandReact,
+} from "@assets/vectors";
 import "./projects.css";
 
 const projects = [
@@ -9,8 +12,12 @@ const projects = [
     label: "Kwik Notes",
     link: "https://kwik-notes.onrender.com",
     desc: "Kwik Notes is a note taking app.",
-    image: KwikNotes,
-    stack: [<React key="React-svg" />, <NodeJS key="NodeJS-svg" />],
+    image: { KwikNotesWebp, KwikNotesAvif },
+    stack: [
+      { component: TablerBrandReact, key: "React-svg" },
+      { component: TablerBrandNodeJS, key: "NodeJS-svg" },
+      { component: TablerBrandMongoDB, key: "MongoDB-svg" },
+    ],
   },
 ];
 
@@ -27,11 +34,21 @@ const Projects = () => {
               </a>
             </h2>
             <p className="project-desc">{proj.desc}</p>
-            <img
-              src={proj.image}
-              alt={`the homepage scrrenshot of my project: ${proj.label}`}
-            />
-            <div className="project-stack">{[...proj.stack]}</div>
+            <picture>
+              <source srcSet={proj.image.KwikNotesAvif} type="image/avif" />
+              <source srcSet={proj.image.KwikNotesWebp} type="image/webp" />
+              <img
+                src={proj.image.KwikNotesWebp}
+                alt={`the homepage screenshot of my project: ${proj.label}`}
+                loading="lazy"
+              />
+            </picture>
+            <div className="project-stack">
+              {proj.stack.map((stack) => {
+                const Component = stack.component;
+                return <Component key={stack.key} />;
+              })}
+            </div>
           </div>
         ))}
       </section>

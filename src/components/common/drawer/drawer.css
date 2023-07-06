@@ -30,14 +30,15 @@ body:has(aside[class="drawer"]) {
 }
 
 .drawer header .close-drawer-btn {
-  min-width: 1.5em;
-  min-height: 1.5em;
+  min-width: 1.6em;
+  min-height: 1.6em;
   border-width: 0;
   background: none;
   border-radius: 50%;
   display: grid;
   place-items: center;
   /* padding: 8px; */
+  color: inherit;
 }
 
 .drawer .drawer-nav {

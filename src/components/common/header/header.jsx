@@ -1,4 +1,4 @@
-import { Bars } from "@assets/vectors";
+import { TablerMenu } from "@assets/vectors";
 import { links } from "@components/common/drawer";
 import { Contexts } from "@components/context";
 import { useContext } from "react";
@@ -41,7 +41,7 @@ const Header = () => {
         title={"Drawer Toggle"}
         aria-label={drawerIsOpen ? "Close drawer" : "Open drawer"}
       >
-        <Bars fill="var(--clr-4)" />
+        <TablerMenu />
       </button>
     </header>
   );

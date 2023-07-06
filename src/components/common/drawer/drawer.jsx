@@ -1,4 +1,4 @@
-import { XMark } from "@assets/vectors";
+import { TablerX } from "@assets/vectors";
 import { Backdrop } from "@components/common";
 import { Contexts } from "@components/context";
 import { useContext } from "react";
@@ -31,7 +31,7 @@ const Drawer = () => {
                 className={"close-drawer-btn"}
                 autoFocus
               >
-                <XMark fill="var(--clr-1)" />
+                <TablerX />
               </button>
             </header>
             <nav className={"drawer-nav"}>

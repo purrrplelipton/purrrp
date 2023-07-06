@@ -1,30 +1,36 @@
-import { Codepen, GitHub, Instagram, LinkedIn, Twitter } from "@assets/vectors";
+import {
+  TablerBrandCodepen,
+  TablerBrandGitHub,
+  TablerBrandInstagram,
+  TablerBrandLinkedIn,
+  TablerBrandTwitter,
+} from "@assets/vectors";
 import "./footer.css";
 
 const socials = [
     {
       link: "https://github.com/purrrplelipton/",
-      icon: <GitHub />,
+      icon: <TablerBrandGitHub />,
       label: "GitHub",
     },
     {
       link: "https://codepen.io/purrrplelipton/",
-      icon: <Codepen />,
+      icon: <TablerBrandCodepen />,
       label: "Codepen",
     },
     {
       link: "https://twitter.com/purrrplelipton/",
-      icon: <Twitter />,
+      icon: <TablerBrandTwitter />,
       label: "Twitter",
     },
     {
       link: "https://linkedin.com/in/purrrplelipton/",
-      icon: <LinkedIn />,
+      icon: <TablerBrandLinkedIn />,
       label: "LinkedIn",
     },
     {
       link: "https://instagram.com/purrrple.lipton/",
-      icon: <Instagram />,
+      icon: <TablerBrandInstagram />,
       label: "Instagram",
     },
   ],

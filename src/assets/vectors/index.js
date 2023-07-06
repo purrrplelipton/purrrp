@@ -1,21 +1,23 @@
-import Bars from "./bars-solid";
-import Codepen from "./codepen";
-import GitHub from "./github";
-import Instagram from "./instagram";
-import LinkedIn from "./linkedin-in";
-import NodeJS from "./node-js";
-import React from "./react";
-import Twitter from "./twitter";
-import XMark from "./xmark-solid";
+import TablerBrandCodepen from "./tabler-brand-codepen";
+import TablerBrandGitHub from "./tabler-brand-github";
+import TablerBrandInstagram from "./tabler-brand-instagram";
+import TablerBrandLinkedIn from "./tabler-brand-linkedin-in";
+import TablerBrandMongoDB from "./tabler-brand-mongo-db";
+import TablerBrandNodeJS from "./tabler-brand-node-js";
+import TablerBrandReact from "./tabler-brand-react";
+import TablerBrandTwitter from "./tabler-brand-twitter";
+import TablerMenu from "./tabler-menu";
+import TablerX from "./tabler-x";
 
 export {
-  Codepen,
-  GitHub,
-  Instagram,
-  LinkedIn,
-  Twitter,
-  Bars,
-  XMark,
-  React,
-  NodeJS,
+  TablerBrandCodepen,
+  TablerBrandGitHub,
+  TablerBrandInstagram,
+  TablerBrandLinkedIn,
+  TablerBrandTwitter,
+  TablerMenu,
+  TablerX,
+  TablerBrandReact,
+  TablerBrandNodeJS,
+  TablerBrandMongoDB,
 };

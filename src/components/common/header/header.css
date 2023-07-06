@@ -54,14 +54,15 @@
 }
 
 .header .drawer-toggle {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.6em;
+  height: 1.6em;
   border-width: 0;
   display: grid;
   place-items: center;
   /* padding: 8px; */
   border-radius: 50%;
   background: none;
+  color: inherit;
 }
 
 @media screen and (min-width: 768px) {
