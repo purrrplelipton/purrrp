@@ -19,9 +19,29 @@
   gap: 0.6em;
 }
 
+.footer .content .socials::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -50%;
+  bottom: -10%;
+  border-radius: 8px;
+  left: -50%;
+  backdrop-filter: blur(2px);
+  /* background-color: hsla(15, 64%, 77%, 1); */
+  z-index: -1;
+}
+
 .footer .content .socials a {
-  width: 1em;
-  height: 1em;
+  /* width: 1.25em; */
+  /* height: 1.25em; */
+  display: grid;
+  place-items: center;
+}
+
+.footer .content .socials a svg {
+  width: 1.25em;
+  height: 1.25em;
 }
 
 @keyframes shake {
@@ -45,7 +65,8 @@
   }
 }
 
-.footer .content .socials a:hover {
+.footer .content .socials a:hover,
+.footer .content .socials a:focus {
   animation: shake 0.4s both;
 }
 
@@ -54,6 +75,19 @@
   right: 0;
   bottom: 0;
   margin: 2.4em;
+}
+
+.footer .content .mail-section::before {
+  content: "";
+  position: absolute;
+  top: -2.5%;
+  right: -50%;
+  bottom: -2.5%;
+  border-radius: 8px;
+  left: -50%;
+  backdrop-filter: blur(2px);
+  /* background-color: hsla(15, 64%, 77%, 1); */
+  z-index: -1;
 }
 
 .footer .content .mail-section a {

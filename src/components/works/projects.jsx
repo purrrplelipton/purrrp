@@ -1,4 +1,9 @@
-import { KwikNotesAvif, KwikNotesWebp } from "@assets/images";
+import {
+  KwikNotesAvif,
+  KwikNotesWebp,
+  StopwatchTimerAvif,
+  StopwatchTimerWebp,
+} from "@assets/images";
 import {
   TablerBrandMongoDB,
   TablerBrandNodeJS,
@@ -11,13 +16,21 @@ const projects = [
     key: "kwik-notes",
     label: "Kwik Notes",
     link: "https://kwik-notes.onrender.com",
-    desc: "Kwik Notes is a note taking app.",
-    image: { KwikNotesWebp, KwikNotesAvif },
+    desc: "Kwik Notes is a relatively simple note taking app.",
+    image: { webpFormat: KwikNotesWebp, avifFormat: KwikNotesAvif },
     stack: [
       { component: TablerBrandReact, key: "React-svg" },
       { component: TablerBrandNodeJS, key: "NodeJS-svg" },
       { component: TablerBrandMongoDB, key: "MongoDB-svg" },
     ],
+  },
+  {
+    key: "stopwatch-timer",
+    label: "Stopwatch/Timer",
+    link: "https://stopwatch-timer.onrender.com",
+    desc: "A simple Stopwatch/Timer web application",
+    image: { webpFormat: StopwatchTimerWebp, avifFormat: StopwatchTimerAvif },
+    stack: [{ component: TablerBrandReact, key: "React-svg" }],
   },
 ];
 
@@ -26,31 +39,40 @@ const Projects = () => {
     <div className="projects">
       <h1>Some Things I&apos;ve Built</h1>
       <section className="projects-grid">
-        {projects.map((proj) => (
-          <div className={`project ${proj.key}`} key={proj.key}>
-            <h2 className="project-title">
-              <a href={proj.link} target="_blank" rel="noopener noreferrer">
-                {proj.label}
-              </a>
-            </h2>
-            <p className="project-desc">{proj.desc}</p>
-            <picture>
-              <source srcSet={proj.image.KwikNotesAvif} type="image/avif" />
-              <source srcSet={proj.image.KwikNotesWebp} type="image/webp" />
-              <img
-                src={proj.image.KwikNotesWebp}
-                alt={`the homepage screenshot of my project: ${proj.label}`}
-                loading="lazy"
-              />
-            </picture>
-            <div className="project-stack">
-              {proj.stack.map((stack) => {
-                const Component = stack.component;
-                return <Component key={stack.key} />;
-              })}
+        {projects.map(
+          ({
+            key,
+            label,
+            link,
+            desc,
+            image: { webpFormat, avifFormat },
+            stack,
+          }) => (
+            <div className={`project ${key}`} key={key}>
+              <h2 className="project-title">
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                  {label}
+                </a>
+              </h2>
+              <p className="project-desc">{desc}</p>
+              <picture>
+                <source srcSet={avifFormat} type="image/avif" />
+                <source srcSet={webpFormat} type="image/webp" />
+                <img
+                  src={avifFormat}
+                  alt={`the homepage screenshot of my project: ${label}`}
+                  loading="lazy"
+                />
+              </picture>
+              <div className="project-stack">
+                {stack.map((stack) => {
+                  const Component = stack.component;
+                  return <Component key={stack.key} />;
+                })}
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        )}
       </section>
     </div>
   );
