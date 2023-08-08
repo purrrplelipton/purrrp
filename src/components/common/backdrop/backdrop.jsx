@@ -1,29 +1,29 @@
-import PropTypes from "prop-types";
-import { useEffect } from "react";
-import "./backdrop.css";
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import './backdrop.css';
 
-const Backdrop = ({ zIndex, onClick, className }) => {
+function Backdrop({ zIndex, onClick, className }) {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.keyCode === 27) onClick();
     };
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
 
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [onClick]);
 
   return (
     <div
-      id={"backdrop"}
+      id="backdrop"
       style={zIndex ? { zIndex } : null}
       onClick={onClick}
-      role={"presentation"}
+      role="presentation"
       tabIndex={-1}
-      aria-label={"Backdrop"}
-      className={className ? className : null}
+      aria-label="Backdrop"
+      className={className || null}
     />
   );
-};
+}
 
 Backdrop.propTypes = {
   zIndex: PropTypes.number,

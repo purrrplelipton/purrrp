@@ -1,16 +1,16 @@
-import { TablerMenu } from "@assets/vectors";
-import { links } from "@components/common/drawer";
-import { Contexts } from "@components/context";
-import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
-import "./header.css";
+import { TablerMenu } from '@assets/vectors';
+import { links } from '@components/common/drawer';
+import { Contexts } from '@components/context';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import './header.css';
 
-const Header = () => {
+function Header() {
   const { drawerIsOpen, setDrawerIsOpen } = useContext(Contexts);
 
   return (
-    <header className={"header"}>
-      <Link to={"/"} className={"header-link"}>
+    <header className="header">
+      <Link to="/" className="header-link">
         Oluwatobiloba
       </Link>
       <nav className="larger-screens-nav">
@@ -19,7 +19,7 @@ const Header = () => {
             key={path}
             to={path}
             className={({ isActive }) =>
-              isActive ? "nav-link active" : "nav-link"
+              isActive ? 'nav-link active' : 'nav-link'
             }
           >
             {label}
@@ -37,14 +37,14 @@ const Header = () => {
       <button
         type="button"
         onClick={() => setDrawerIsOpen(true)}
-        className={"drawer-toggle"}
-        title={"Drawer Toggle"}
-        aria-label={drawerIsOpen ? "Close drawer" : "Open drawer"}
+        className="drawer-toggle"
+        title="Drawer Toggle"
+        aria-label={drawerIsOpen ? 'Close drawer' : 'Open drawer'}
       >
         <TablerMenu />
       </button>
     </header>
   );
-};
+}
 
 export default Header;

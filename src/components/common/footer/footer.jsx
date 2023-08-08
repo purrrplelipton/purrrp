@@ -4,39 +4,40 @@ import {
   TablerBrandInstagram,
   TablerBrandLinkedIn,
   TablerBrandTwitter,
-} from "@assets/vectors";
-import "./footer.css";
+} from '@assets/vectors';
+import React from 'react';
+import './footer.css';
 
 const socials = [
-    {
-      link: "https://github.com/purrrplelipton/",
-      icon: <TablerBrandGitHub />,
-      label: "GitHub",
-    },
-    {
-      link: "https://codepen.io/purrrplelipton/",
-      icon: <TablerBrandCodepen />,
-      label: "Codepen",
-    },
-    {
-      link: "https://twitter.com/purrrplelipton/",
-      icon: <TablerBrandTwitter />,
-      label: "Twitter",
-    },
-    {
-      link: "https://linkedin.com/in/purrrplelipton/",
-      icon: <TablerBrandLinkedIn />,
-      label: "LinkedIn",
-    },
-    {
-      link: "https://instagram.com/purrrple.lipton/",
-      icon: <TablerBrandInstagram />,
-      label: "Instagram",
-    },
-  ],
-  myEmail = "purrrplelipton@outlook.com";
+  {
+    link: 'https://github.com/purrrplelipton/',
+    icon: <TablerBrandGitHub />,
+    label: 'GitHub',
+  },
+  {
+    link: 'https://codepen.io/purrrplelipton/',
+    icon: <TablerBrandCodepen />,
+    label: 'Codepen',
+  },
+  {
+    link: 'https://twitter.com/purrrplelipton/',
+    icon: <TablerBrandTwitter />,
+    label: 'Twitter',
+  },
+  {
+    link: 'https://linkedin.com/in/purrrplelipton/',
+    icon: <TablerBrandLinkedIn />,
+    label: 'LinkedIn',
+  },
+  {
+    link: 'https://instagram.com/purrrple.lipton/',
+    icon: <TablerBrandInstagram />,
+    label: 'Instagram',
+  },
+];
+const myEmail = 'purrrplelipton@outlook.com';
 
-const Footer = () => {
+function Footer() {
   return (
     <footer className="footer">
       <div className="content">
@@ -55,7 +56,7 @@ const Footer = () => {
         </section>
         <aside className="mail-section">
           <a href="mailto:purrrplelipton@utlook.com">
-            {myEmail.split("").map((char, i) => (
+            {myEmail.split('').map((char, i) => (
               <span key={`${char}-${i}`}>{char}</span>
             ))}
           </a>
@@ -63,6 +64,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

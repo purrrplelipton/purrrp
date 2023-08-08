@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import { createContext, useState } from "react";
+import PropTypes from 'prop-types';
+import React, { createContext, useState } from 'react';
 
 export const Contexts = createContext(null);
 
-export const Provider = ({ children }) => {
+export function Provider({ children }) {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
   return (
@@ -11,6 +11,6 @@ export const Provider = ({ children }) => {
       {children}
     </Contexts.Provider>
   );
-};
+}
 
 Provider.propTypes = { children: PropTypes.node.isRequired };

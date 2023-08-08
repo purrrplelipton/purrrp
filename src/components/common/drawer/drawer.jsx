@@ -1,18 +1,18 @@
-import { TablerX } from "@assets/vectors";
-import { Backdrop } from "@components/common";
-import { Contexts } from "@components/context";
-import { useContext } from "react";
-import { NavLink } from "react-router-dom";
-import "./drawer.css";
+import { TablerX } from '@assets/vectors';
+import { Backdrop } from '@components/common';
+import { Contexts } from '@components/context';
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import './drawer.css';
 
 const links = [
-  { path: "/about-me", label: "About Me" },
-  { path: "/experience", label: "Experience" },
-  { path: "/works", label: "Works" },
-  { path: "/reach-out", label: "Reach Out" },
+  { path: '/about-me', label: 'About Me' },
+  { path: '/experience', label: 'Experience' },
+  { path: '/works', label: 'Works' },
+  { path: '/reach-out', label: 'Reach Out' },
 ];
 
-const Drawer = () => {
+function Drawer() {
   const { drawerIsOpen, setDrawerIsOpen } = useContext(Contexts);
 
   return (
@@ -22,26 +22,26 @@ const Drawer = () => {
           {drawerIsOpen && (
             <Backdrop zIndex={30} onClick={() => setDrawerIsOpen(false)} />
           )}
-          <aside className={`drawer${drawerIsOpen ? "" : " closed"}`}>
+          <aside className={`drawer${drawerIsOpen ? '' : ' closed'}`}>
             <header>
               <button
-                type={"button"}
-                aria-label={"Close drawer"}
+                type="button"
+                aria-label="Close drawer"
                 onClick={() => setDrawerIsOpen(false)}
-                className={"close-drawer-btn"}
+                className="close-drawer-btn"
                 autoFocus
               >
                 <TablerX />
               </button>
             </header>
-            <nav className={"drawer-nav"}>
+            <nav className="drawer-nav">
               <div>
                 {links.map(({ path, label }) => (
                   <NavLink
                     key={path}
                     to={path}
                     className={({ isActive }) =>
-                      `drawer-link${isActive ? " active" : ""}`
+                      `drawer-link${isActive ? ' active' : ''}`
                     }
                     onClick={() => setDrawerIsOpen(false)}
                   >
@@ -63,6 +63,6 @@ const Drawer = () => {
       )}
     </>
   );
-};
+}
 
 export { links, Drawer };

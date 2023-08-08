@@ -4,7 +4,7 @@ Welcome to my frontend software engineer portfolio! This repository contains the
 
 ## Accessing the Portfolio
 
-To view my portfolio and explore my projects, please visit [My Portfolio](https://purrrplelipton.github.io/). The site provides an interactive showcase of my work as a frontend software engineer, demonstrating my skills and experience in building user-friendly and visually appealing web applications.
+To view my portfolio and explore my projects, please visit [My Portfolio](https://purrrp.vercel.app). The site provides an interactive showcase of my work as a frontend software engineer, demonstrating my skills and experience in building user-friendly and visually appealing web applications.
 
 ## Table of Contents
 
@@ -29,9 +29,9 @@ As a frontend software engineer, I possess a wide range of skills and knowledge.
 
 I am open to new opportunities and collaborations. If you have any questions, project proposals, or would like to get in touch, please feel free to reach out to me.
 
-- Email: [immanueltoby@gmail.com]
-- LinkedIn: [https://linkedin.com/in/purrrplelipton]
-- Portfolio: [https://purrrplelipton.github.io/]
+- [immanueltoby@gmail.com](mailto:immanueltoby@gmail.com)
+- [Emmanuel Adeyeye](https://linkedin.com/in/purrrplelipton)
+- [purrrp](https://purrrp.vercel.app/)
 
 I look forward to connecting with you and discussing potential collaborations!
 

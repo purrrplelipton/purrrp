@@ -1,23 +1,23 @@
-import { TobyAvif, TobyWebp } from "@assets/images";
-import { useState } from "react";
-import "./details.css";
+import { TobyAvif, TobyWebp } from '@assets/images';
+import React, { useState } from 'react';
+import './details.css';
 
 const techs = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "Sass",
-  "LESS",
-  "Redux",
-  "MobX",
-  "Webpack",
-  "Babel",
-  "RESTful APIs",
-  "Git",
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Sass',
+  'LESS',
+  'Redux',
+  'MobX',
+  'Webpack',
+  'Babel',
+  'RESTful APIs',
+  'Git',
 ];
 
-const Details = () => {
+function Details() {
   const [imgOpen, setImgOpen] = useState(false);
 
   return (
@@ -27,7 +27,7 @@ const Details = () => {
           <h1 className="section-title">About Me</h1>
           <div className="intro">
             <p>
-              I&apos;m Emmanuel Adeyeye - known as{" "}
+              I&apos;m Emmanuel Adeyeye - known as{' '}
               <span className="informal-name">Tobi</span> by most - a passionate
               frontend software engineer from Lagos, Nigeria
             </p>
@@ -67,7 +67,7 @@ const Details = () => {
             src={TobyAvif}
             alt="an headshot image of me"
             loading="lazy"
-            className={imgOpen ? "my-pic enlarged" : "my-pic"}
+            className={imgOpen ? 'my-pic enlarged' : 'my-pic'}
             onClick={() => setImgOpen(true)}
           />
         </picture>
@@ -82,7 +82,7 @@ const Details = () => {
                 src={TobyAvif}
                 alt="an headshot image of me"
                 loading="lazy"
-                className={"modal-image"}
+                className="modal-image"
                 onClick={() => setImgOpen(true)}
               />
             </picture>
@@ -91,6 +91,6 @@ const Details = () => {
       )}
     </>
   );
-};
+}
 
 export default Details;
