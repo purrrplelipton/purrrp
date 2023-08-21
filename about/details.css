@@ -1,0 +1,139 @@
+.details {
+  min-height: inherit;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.details .about-me {
+  padding: 2.4em 1em;
+}
+
+.details .about-me .section-title {
+  font-size: 1.2em;
+  margin-bottom: 1.6667em;
+}
+
+.details .about-me .intro p {
+  margin-bottom: 0.6em;
+}
+
+.details .about-me .intro p .informal-name {
+  font-family: var(--ff-2);
+  font-weight: 900;
+  position: relative;
+}
+
+.details .about-me .intro p .informal-name::before,
+.details .about-me .intro p .informal-name::after {
+  position: absolute;
+  content: "";
+  right: 0;
+  left: 0;
+  height: 1px;
+  background-color: currentColor;
+  bottom: 3px;
+  opacity: 0.75;
+}
+
+.details .about-me .intro p .informal-name::after {
+  bottom: 6px;
+}
+
+.details .about-me .technologies .subsection-title {
+  font-size: 0.96em;
+  margin-top: 2.1em;
+}
+
+.details .about-me .technologies ul {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  font-size: 0.8em;
+  gap: 0.5em 0;
+  margin: 1.2em 0;
+}
+
+.details .about-me .technologies ul li {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  gap: 0.5em;
+  border-bottom: 1px solid rgba(45 67 86 / 0.4);
+}
+
+/* .details .about-me .technologies ul li span {} */
+
+.details .about-me .technologies ul li::before {
+  /* position: absolute; */
+  content: ".";
+  font-family: var(--ff-2);
+  font-weight: 900;
+  margin-bottom: 0.25em;
+}
+
+.details .my-pic {
+  height: 16em;
+  margin: 0 auto 2em;
+  border-radius: 0.6em 50% 0.6em 50%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-backdrop-filter: blur(0.8em);
+  backdrop-filter: blur(0.8em);
+  display: grid;
+  place-items: center;
+}
+
+.modal-content {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.modal-image {
+  border-radius: 0.8em;
+  max-width: 90vw;
+  max-height: 90vh;
+  cursor: none;
+}
+
+@media screen and (min-width: 768px) {
+  .details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .details .about-me {
+    grid-column: span 2;
+  }
+
+  .details .my-pic {
+    margin: 0 1em 2em auto;
+    grid-column: 2;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .details {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* .details .about-me {} */
+
+  .details .about-me .technologies ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .details .my-pic {
+    grid-column: 3;
+    margin: 2.4em auto 0;
+  }
+
+  .details .my-pic:hover {
+    border-radius: 50%;
+  }
+}

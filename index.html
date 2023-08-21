@@ -4,27 +4,62 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/favicon_io/apple-touch-icon.png"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon_io/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon_io/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/favicon_io/site.webmanifest" />
-    <title>Emmanuel Adeyeye | Software Engineer</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="./assets/tobiii.ico" type="image/x-icon" />
+    <title>Emmanuel Oluwatobiloba</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/index.jsx"></script>
+    <header>
+      <div class="header__left"><a href="#home">Tobi</a></div>
+      <div class="header__right">
+        <nav id="navlist" class="navlist__bar visible hidden">
+          <button type="button" id="hide-nav" aria-label="Hide nav button">
+            <i class="fas fa-close"></i>
+          </button>
+          <a href="#identity" title="Identity" aria-label="About">identity</a>
+          <a href="#adventure" title="Adventure" aria-label="Experience">
+            adventure
+          </a>
+          <a href="#endeavors" title="Endeavors" aria-label="Works">
+            endeavors
+          </a>
+          <a href="#connect" title="Connect" aria-label="Contact">connect</a>
+          <a href="http://resume.io" target="_blank" rel="noopener noreferrer">
+            resume
+          </a>
+        </nav>
+        <button type="button" id="show-nav" aria-label="Show nav button">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section id="home" class="landing">
+        <p>Hi, I'm <span class="gov-name">Emmanuel Adeyeye</span></p>
+        <h1 class="intro">
+          call me <span class="big">Tobi</span>, your next
+          <span class="big">Frontend</span> dev
+        </h1>
+        <ul class="cuboid">
+          <li class="face front">i'm the front face</li>
+          <li class="face back">i'm the back face</li>
+          <li class="face left"></li>
+          <li class="face right"></li>
+          <li class="face top">i'm the top face</li>
+          <li class="face bottom">
+            <p>i'm the bottom face</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="./script.js"></script>
   </body>
 </html>
