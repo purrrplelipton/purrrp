@@ -229,7 +229,7 @@ main {
 
 .back {
   --coefficient: -0.5;
-  transform: scaleX(-1) translateZ(calc(var(--depth) * var(--coefficient)));
+  transform: scaleY(-1) translateZ(calc(var(--depth) * var(--coefficient)));
 }
 
 .left,
