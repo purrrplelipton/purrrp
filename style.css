@@ -36,8 +36,8 @@
   --saxon-blu: #435b66;
   --pomegranate-tea: #a76f6f;
   --wax-flower: #eab2a0;
-  color: var(--saxon-blu);
-  background-color: var(--wax-flower);
+  color: var(--pomegranate-tea);
+  background-color: var(--blu-wing-teal);
   font-size: 10px;
   font-family: 'Outfit', sans-serif;
   font-weight: 400;
@@ -49,7 +49,7 @@ section {
 }
 
 header {
-  background-color: var(--wax-flower);
+  background-color: var(--blu-wing-teal);
   padding: 2em 3em;
   display: flex;
   flex-flow: row nowrap;
@@ -60,12 +60,14 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  box-shadow: 0 0.1em 1em hsla(0, 0%, 100%, 0.05);
 }
 
 .header__left a {
   color: inherit;
   text-decoration: none;
   font-size: 3em;
+  line-height: 1;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -89,13 +91,13 @@ header {
   width: 100%;
   max-width: 320px;
   background-color: var(--wax-flower);
-  padding: 3.75em 3em;
+  padding: 3em;
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
   justify-content: center;
   box-shadow: -100vw 0 100vw rgba(0, 0, 0, 0);
-  transition: transform 0.125s, opacity 0.125s;
+  transition: transform 0.3s, opacity 0.2s;
 }
 
 .visible {
@@ -116,7 +118,9 @@ header {
   border: 0;
   padding: 0;
   font-size: 1.5em;
-  color: inherit;
+  min-height: 1em;
+  min-width: 1em;
+  color: var(--saxon-blu);
   background-color: rgba(0, 0, 0, 0);
   display: flex;
   flex-flow: row nowrap;
@@ -141,6 +145,8 @@ header {
 
 .header__right button {
   font-size: 1.5em;
+  min-width: 1em;
+  min-height: 1em;
   border: 0;
   padding: 0;
   color: inherit;
@@ -164,6 +170,7 @@ main {
   flex-flow: column nowrap;
   align-items: flex-start;
   justify-content: flex-end;
+  perspective: 1024px;
 }
 
 .landing p {
@@ -171,100 +178,84 @@ main {
 }
 
 .gov-name {
-  color: var(--blu-wing-teal);
+  color: var(--wax-flower);
   font-size: 1.3em;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 0.05em;
 }
 
 .intro {
   font-size: 0.87em;
-  margin-bottom: 0.333em;
+  margin-bottom: 1em;
 }
 
 .big {
-  color: var(--blu-wing-teal);
+  color: var(--wax-flower);
   font-size: 1.3em;
   font-weight: 600;
-  text-decoration: underline;
-  text-decoration-thickness: 0.05em;
 }
 
 .cuboid {
+  --width: 300px;
+  --depth: calc(var(--width) / 8);
   list-style-type: none;
   padding: 0;
-  --width: 256px;
-  --height: calc(var(--width) / 10);
-  --depth: var(--height);
-  position: relative;
+  margin: 0 auto;
   width: var(--width);
-  height: var(--height);
-  /* transform: rotateX(-1.5deg) rotateY(7.5deg); */
-  perspective: 800px;
+  height: var(--depth);
+  position: relative;
   transform-style: preserve-3d;
-  animation: spin 8s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotateX(0);
-  }
-  100% {
-    transform: rotateX(360deg);
-  }
+  transition: transform 0.375s linear;
 }
 
 .face {
-  position: absolute;
-  /* border: 1px solid rgba(0, 0, 0, 0.2); */
+  border: 1px solid hsla(0, 0%, 0%, 0.2);
+  color: var(--blu-wing-teal);
   background-color: var(--wax-flower);
-  /* text-align: center; */
-  font-size: 0.9em;
-  padding: 4px;
-  line-height: 1;
+  position: absolute;
+  width: 100%;
+  height: var(--depth);
+  display: grid;
+  place-items: center;
 }
 
 .front,
 .back {
-  width: var(--width);
-  height: var(--height);
   --coefficient: 0.5;
-  transform: translate3d(0, 0, calc(var(--depth) * var(--coefficient)));
+  --rotation: 0;
+  transform: translateZ(calc(var(--depth) * var(--coefficient)));
 }
 
 .back {
   --coefficient: -0.5;
+  transform: scaleX(-1) translateZ(calc(var(--depth) * var(--coefficient)));
 }
 
 .left,
 .right {
-  --rotation: 90deg;
+  --rotation: -90deg;
   width: var(--depth);
-  height: var(--height);
+  height: var(--depth);
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%) rotateY(var(--rotation))
-    translate3d(0, 0, calc(var(--width) * -0.5));
+    translate3d(0, 0, calc(var(--width) * 0.5));
+  background-color: var(--saxon-blu);
 }
 
 .right {
-  --rotation: -90deg;
+  --rotation: 90deg;
 }
 
 .top,
 .bottom {
-  --rotation: -90deg;
-  width: var(--width);
-  height: var(--height);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotateX(var(--rotation))
-    translate3d(0, 0, calc(var(--height) * -0.5));
+  --rotation: 90deg;
+  --coefficient: 0.5;
+  transform: rotateX(var(--rotation))
+    translate3d(0, 0, calc(var(--depth) * var(--coefficient)));
 }
 
 .bottom {
-  --rotation: 90deg;
-}
-
-@media screen and (max-width: 1024px) {
-  /* .lg-screen__nav {} */
+  --rotation: -90deg;
 }
