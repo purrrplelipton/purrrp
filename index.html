@@ -12,28 +12,40 @@
     />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="shortcut icon" href="./assets/tobiii.ico" type="image/x-icon" />
-    <title>Emmanuel Oluwatobiloba</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/tobiii.ico"
+      type="image/x-icon"
+      sizes="32x32"
+    />
+    <title>Emmanuel Adeyeye</title>
   </head>
   <body>
     <header>
-      <div class="header__left"><a href="#home">Tobi</a></div>
+      <div class="header__left">
+        <a href="#">
+          <img
+            src="./assets/images/tobiii.webp"
+            alt="An image of Emmanuel Oluwatobiloba Adeyeye"
+          />
+        </a>
+      </div>
       <div class="header__right">
         <nav class="navlist__bar visible hidden">
           <button type="button" id="hide-nav" aria-label="Hide nav button">
             <i class="fas fa-close"></i>
           </button>
           <a href="#identity" title="Identity" aria-label="About">identity</a>
-          <a href="#adventure" title="Adventure" aria-label="Experience">
-            adventure
-          </a>
-          <a href="#endeavors" title="Endeavors" aria-label="Works">
-            endeavors
-          </a>
+          <a href="#adventure" title="Adventure" aria-label="Experience"
+            >adventure</a
+          >
+          <a href="#endeavors" title="Endeavors" aria-label="Works"
+            >endeavors</a
+          >
           <a href="#connect" title="Connect" aria-label="Contact">connect</a>
-          <a href="http://resume.io" target="_blank" rel="noopener noreferrer">
-            resume
-          </a>
+          <a href="http://resume.io" target="_blank" rel="noopener noreferrer"
+            >resume</a
+          >
         </nav>
         <button type="button" id="show-nav" aria-label="Show nav button">
           <i class="fas fa-bars"></i>
@@ -41,8 +53,19 @@
       </div>
     </header>
     <main>
-      <section id="home" class="landing">
-        <p>Hi, I'm <span class="gov-name">Emmanuel Adeyeye</span></p>
+      <section class="landing">
+        <p>
+          Hi, I'm
+          <span class="gov-name">
+            Emmanuel Adeyeye
+            <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                id="svg_line"
+                d="m 1.986,8.91 c 55.429038,4.081 111.58111,5.822 167.11781,2.867 22.70911,-1.208 45.39828,-0.601 68.126,-0.778 28.38173,-0.223 56.76079,-1.024 85.13721,-1.33 24.17379,-0.261 48.42731,0.571 72.58115,0.571"
+              ></path>
+            </svg>
+          </span>
+        </p>
         <h1 class="intro">
           call me <span class="big">Tobi</span>, your next
           <span class="big">Frontend</span> dev
@@ -54,6 +77,63 @@
           <li class="face right"></li>
           <li class="face top">Crafting Digital Adventures</li>
           <li class="face bottom">Bringing Imagination to Life</li>
+        </ul>
+      </section>
+      <section id="endeavors" class="endeavors-section">
+        <h2>Endeavors</h2>
+        <ul class="works-list">
+          <li
+            role="button"
+            tabindex="0"
+            class="work interactive-comments"
+            data-description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim vero provident assumenda eos sequi, minima cumque rerum, voluptatem repudiandae dignissimos soluta aspernatur delectus consectetur dolor. Numquam hic odio quo voluptatibus."
+          >
+            <img
+              class="preview"
+              src="./assets/images/works/work_0.webp"
+              alt="A desktop preview image of a project titled: Interactive Comments Section"
+            />
+            <span class="work-title">Interactive Comments Section</span>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            class="work bookmark-landing-page"
+            data-description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim vero provident assumenda eos sequi, minima cumque rerum, voluptatem repudiandae dignissimos soluta aspernatur delectus consectetur dolor. Numquam hic odio quo voluptatibus."
+          >
+            <img
+              class="preview"
+              src="./assets/images/works/work_1.webp"
+              alt="A desktop preview image of a project titled: Bookmark Landing Page"
+            />
+            <span class="work-title">Bookmark Landing Page</span>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            class="work job-listings"
+            data-description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim vero provident assumenda eos sequi, minima cumque rerum, voluptatem repudiandae dignissimos soluta aspernatur delectus consectetur dolor. Numquam hic odio quo voluptatibus."
+          >
+            <img
+              class="preview"
+              src="./assets/images/works/work_2.webp"
+              alt="A desktop preview image of a project titled: Static Job Listings"
+            />
+            <span class="work-title">Static Job Listings</span>
+          </li>
+          <li
+            role="button"
+            tabindex="0"
+            class="work news-homepage"
+            data-description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim vero provident assumenda eos sequi, minima cumque rerum, voluptatem repudiandae dignissimos soluta aspernatur delectus consectetur dolor. Numquam hic odio quo voluptatibus."
+          >
+            <img
+              class="preview"
+              src="./assets/images/works/work_3.webp"
+              alt="A desktop preview image of a project titled: News Homepage"
+            />
+            <span class="work-title">News Homepage</span>
+          </li>
         </ul>
       </section>
     </main>

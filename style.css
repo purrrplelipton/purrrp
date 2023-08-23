@@ -1,6 +1,15 @@
+/* ExtraLight (200) */
 @font-face {
   font-family: 'Outfit';
-  src: url(./assets/Outfit/Outfit-ExtraLight.ttf) format('truetype');
+  src: url(./assets/fonts/Outfit/Outfit-ExtraLight.ttf) format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url(./assets/fonts/Roboto_Slab/RobotoSlab-ExtraLight.ttf)
+    format('truetype');
   font-weight: 200;
   font-display: swap;
   font-style: normal;
@@ -9,7 +18,14 @@
 /* Regular (400) */
 @font-face {
   font-family: 'Outfit';
-  src: url(./assets/Outfit/Outfit-Regular.ttf) format('truetype');
+  src: url(./assets/fonts/Outfit/Outfit-Regular.ttf) format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url(./assets/fonts/Roboto_Slab/RobotoSlab-Regular.ttf) format('truetype');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
@@ -18,7 +34,15 @@
 /* Semibold (600) */
 @font-face {
   font-family: 'Outfit';
-  src: url(./assets/Outfit/Outfit-SemiBold.ttf) format('truetype');
+  src: url(./assets/fonts/Outfit/Outfit-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url(./assets/fonts/Roboto_Slab/RobotoSlab-SemiBold.ttf)
+    format('truetype');
   font-weight: 600;
   font-display: swap;
   font-style: normal;
@@ -41,6 +65,14 @@
   font-size: 10px;
   font-family: 'Outfit', sans-serif;
   font-weight: 400;
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 1280px;
+  margin-inline: auto;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
 section {
@@ -55,23 +87,14 @@ header {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
-  z-index: 99;
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 0.1em 1em hsla(0, 0%, 100%, 0.05);
 }
 
 .header__left a {
   color: inherit;
   text-decoration: none;
-  font-size: 3em;
-  line-height: 1;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
+  max-width: 80px;
 }
 
 .header__right {
@@ -91,7 +114,7 @@ header {
   width: 100%;
   max-width: 320px;
   background-color: var(--wax-flower);
-  padding: 3em;
+  padding: 4.5em 3em;
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
@@ -140,7 +163,15 @@ header {
 }
 
 .navlist__bar a:last-child {
-  margin-bottom: auto;
+  margin: auto 0;
+  color: var(--wax-flower);
+  background-color: var(--blu-wing-teal);
+  font-size: 2.25em;
+  font-family: 'Roboto Slab', sans-serif;
+  align-self: center;
+  padding: 0.2em 1em 0.3em;
+  border-radius: 2.5em;
+  border: 2px solid;
 }
 
 .header__right button {
@@ -162,15 +193,15 @@ main {
 }
 
 .landing {
-  height: 100vh;
-  min-height: 768px;
+  height: 88vh;
+  min-height: 720px;
   font-size: 2em;
-  padding: 4.25em 0;
+  padding-bottom: 6.4em;
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
   justify-content: flex-end;
-  perspective: 1024px;
+  perspective: 2056px;
 }
 
 .landing p {
@@ -180,9 +211,33 @@ main {
 .gov-name {
   color: var(--wax-flower);
   font-size: 1.3em;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-thickness: 0.05em;
+  position: relative;
+}
+
+.gov-name svg {
+  position: absolute;
+  overflow: hidden;
+  top: calc(100% + 0.125em);
+  left: 50%;
+  margin: 0;
+  width: 100%;
+  height: 0.5em;
+  transform: translate(-50%, -90%);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.25em;
+  stroke-dasharray: 768px;
+  stroke-dashoffset: 768px;
+  animation: stroke 1.375s 0.625s alternate forwards;
+}
+
+@keyframes stroke {
+  from {
+    stroke-dashoffset: 768px;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .intro {
@@ -194,6 +249,37 @@ main {
   color: var(--wax-flower);
   font-size: 1.3em;
   font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.big::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blu-wing-teal);
+  opacity: 0.8;
+  animation: uncover 1.375s alternate forwards;
+}
+
+@keyframes uncover {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+.big:first-of-type::before {
+  animation-delay: 0.625s;
+}
+
+.big:last-of-type::before {
+  animation-delay: 2s;
 }
 
 .cuboid {
@@ -206,7 +292,7 @@ main {
   height: var(--depth);
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.375s linear;
+  transition: transform 0.2s cubic-bezier(0.36, 0.45, 0.63, 1.4);
 }
 
 .face {
@@ -258,4 +344,93 @@ main {
 
 .bottom {
   --rotation: -90deg;
+}
+
+.endeavors-section {
+  padding: 3em 0;
+  color: var(--blu-wing-teal);
+  background-color: var(--wax-flower);
+  box-shadow: 0 0 0 100vmax var(--wax-flower);
+  clip-path: inset(0 -100vmax);
+}
+
+.endeavors-section h2 {
+  font-size: 3em;
+  margin-bottom: 0.625em;
+}
+
+.works-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.works-list .work {
+  position: relative;
+  transform: translate(-1px, -1px);
+  transition: transform 0.3s;
+  z-index: 3;
+  overflow: hidden;
+  border-radius: 0.8em;
+  outline: 1px solid transparent;
+}
+
+.works-list .work:active {
+  transform: translate(1px, 1px);
+}
+
+.works-list .work::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-image: linear-gradient(7.5deg, #fff, #00000000 50%);
+}
+
+.works-list .work:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+
+.work-title {
+  font-size: 1.4em;
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 600;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  padding-inline: 0.75em;
+  padding-block: 0.25em;
+}
+
+@media only screen and (min-width: 1024px) {
+  .navlist__bar {
+    position: static;
+    width: auto;
+    max-width: 100%;
+    background-color: initial;
+    padding: 0;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 2em;
+    transition: none;
+  }
+
+  .visible,
+  .hidden {
+    transform: none;
+    opacity: 1;
+    box-shadow: none;
+  }
+
+  .navlist__bar a {
+    color: inherit;
+    margin: 0 !important;
+  }
+
+  #show-nav,
+  #hide-nav {
+    display: none;
+  }
 }
