@@ -92,6 +92,10 @@ header {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .header__left a {
@@ -198,10 +202,10 @@ main {
 }
 
 .landing {
-  height: 88vh;
-  min-height: 720px;
+  height: 100vh;
+  min-height: 768px;
   font-size: 2em;
-  padding-bottom: 6.4em;
+  padding-bottom: 9.6em;
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
@@ -466,17 +470,18 @@ main {
   border-radius: 8px;
   border-style: solid;
   border-width: 0 2px 2px 0;
+  border-color: #00000000 var(--wax-flower) var(--wax-flower) #00000000;
   transform: translate(-1px, -1px);
   animation: pulsate 2s linear infinite alternate;
 }
 
 @keyframes pulsate {
   from {
-    border-width: 0 2px 2px 0;
+    border-color: #00000000 var(--wax-flower) var(--wax-flower) #00000000;
     transform: translate(-1px, -1px);
   }
   to {
-    border-width: 0 0 0 0;
+    border-color: #00000000 #00000000 #00000000 #00000000;
     transform: translate(1px, 1px);
   }
 }
