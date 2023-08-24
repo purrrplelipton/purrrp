@@ -8,22 +8,19 @@ const navList = document.querySelector('.navlist__bar');
 
 function hideNavBar() {
   navList.classList.add('hidden');
-  document.body.removeAttribute('style');
+  document.body.classList.toggle('restrict');
 }
 
 showNav.addEventListener('click', () => {
   navList.classList.remove('hidden');
-  document.body.style = `
-    height: 100vh !important;
-    overflow: hidden !important;
-  `;
+  document.body.classList.toggle('restrict');
 });
 
 hideNav.addEventListener('click', hideNavBar);
 
-const navLinks = navList.querySelectorAll('a');
+const sectionLinks = navList.querySelectorAll('a');
 
-for (const link of navLinks) {
+for (const link of sectionLinks) {
   link.addEventListener('click', hideNavBar);
 }
 
@@ -37,67 +34,98 @@ setInterval(() => {
   angle += 90;
 }, 5200);
 
-const modal = document.createElement('div');
-modal.setAttribute('role', 'presentation');
-modal.style = `
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  display: grid;
-  place-items: center;
-`;
-modal.addEventListener('click', ({}) => {
-  document.body.removeChild(modal);
-  document.body.removeAttribute('style');
-  workTitle = '';
-  workDesc = '';
-  workPreview.src = '';
-  workPreview.alt = '';
+const backdrop = document.createElement('div');
+backdrop.setAttribute('role', 'presentation');
+backdrop.setAttribute('class', 'backdrop hide');
+backdrop.addEventListener('click', ({ target }) => {
+  modal.classList.toggle('hide');
+  setTimeout(() => {
+    target.removeChild(modal);
+    target.classList.toggle('hide');
+    setTimeout(() => {
+      document.body.classList.toggle('restrict');
+      document.body.removeChild(target);
+    }, 300);
+  }, 300);
 });
 
-const content = document.createElement('section');
-content.style = `
-  max-width: 90%;
-  padding: 2em;
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  background-color: #fff;
-`;
-content.addEventListener('click', function (e) {
-  return e.stopPropagation();
-});
+const modal = document.createElement('section');
+modal.setAttribute('class', 'modal hide');
+modal.addEventListener('click', (e) => e.stopPropagation());
 
-let workTitle = document.createElement('h2'),
-  workPreview = document.createElement('img'),
-  workDesc = document.createElement('p');
+let title = document.createElement('h2');
+title.setAttribute('class', 'modal__title');
 
-content.appendChild(workTitle);
-content.appendChild(workPreview);
-content.appendChild(workDesc);
+const screenshotContainer = document.createElement('div');
+screenshotContainer.setAttribute(
+  'class',
+  'modal__project-screenshot-container',
+);
 
-modal.appendChild(content);
+let screenshot = document.createElement('img');
+screenshot.setAttribute('src', '');
+screenshot.setAttribute('alt', '');
 
-const endeavors = document.querySelector('.works-list');
-const works = endeavors.querySelectorAll('.work');
+screenshotContainer.appendChild(screenshot);
 
-works.forEach((work) => {
-  work.addEventListener('click', ({ target }) => {
-    document.body.appendChild(modal);
-    document.body.style = `
-      height: 100vh !important;
-      overflow: hidden !important;
-    `;
+const details = document.createElement('div');
+details.setAttribute('class', 'modal__details');
 
-    const title = target.querySelector('.work-title');
-    const image = target.querySelector('.preview');
-    const description = target.getAttribute('data-description');
+let desc = document.createElement('p');
+desc.setAttribute('class', 'details__desc');
 
-    workTitle.textContent = title.textContent;
-    workPreview.src = image.src;
-    workPreview.alt = image.alt;
-    workDesc.textContent = description;
+const repo$preview = document.createElement('div');
+repo$preview.setAttribute('class', 'details__more');
+
+const link = document.createElement('a');
+link.setAttribute('target', '_blank');
+link.setAttribute('rel', 'noopener noreferrer');
+
+let repo = link.cloneNode();
+repo.innerHTML = '<i class="fa-brands fa-github"></i>';
+
+let preview = link.cloneNode();
+preview.innerHTML = '<i class="fa-solid fa-link"></i>';
+
+[repo, preview].forEach((aTag) => repo$preview.appendChild(aTag));
+
+[desc, repo$preview].forEach((node) => details.appendChild(node));
+
+modal.appendChild(title);
+modal.appendChild(screenshotContainer);
+modal.appendChild(details);
+
+// backdrop.appendChild(modal);
+
+const worksSection = document.querySelector('.projects-list');
+const works = worksSection.querySelectorAll('.project');
+
+works.forEach((project) => {
+  project.addEventListener('click', ({ target }) => {
+    // log(target);
+    title.innerHTML = target.querySelector('.project-title').textContent;
+    const { src, alt } = target.querySelector('.preview');
+    screenshot.setAttribute('src', src);
+    screenshot.setAttribute('alt', alt);
+    desc.innerHTML = target.getAttribute('data-description');
+    repo.setAttribute(
+      'href',
+      `https://github.com/purrrplelipton/${target.getAttribute(
+        'data-repository',
+      )}.git/`,
+    );
+    preview.setAttribute(
+      'href',
+      `https://${target.getAttribute('data-live-URL')}.vercel.app/`,
+    );
+
+    document.body.appendChild(backdrop);
+
+    setTimeout(() => {
+      document.body.classList.toggle('restrict');
+      backdrop.classList.toggle('hide');
+      backdrop.appendChild(modal);
+      setTimeout(() => modal.classList.toggle('hide'), 100);
+    }, 100);
   });
 });

@@ -75,6 +75,11 @@ body {
   min-height: 100vh;
 }
 
+body.restrict {
+  height: 100vh;
+  overflow: hidden hidden;
+}
+
 section {
   content-visibility: auto;
   contain-intrinsic-size: 100vh;
@@ -346,7 +351,7 @@ main {
   --rotation: -90deg;
 }
 
-.endeavors-section {
+.projects-section {
   padding: 3em 0;
   color: var(--blu-wing-teal);
   background-color: var(--wax-flower);
@@ -354,31 +359,45 @@ main {
   clip-path: inset(0 -100vmax);
 }
 
-.endeavors-section h2 {
+.projects-section h2 {
   font-size: 3em;
   margin-bottom: 0.625em;
 }
 
-.works-list {
+.projects-list {
   list-style-type: none;
   padding: 0;
 }
 
-.works-list .work {
+.projects-list .project {
   position: relative;
+  width: 100%;
+  padding-bottom: calc((11 / 15) * 100%);
   transform: translate(-1px, -1px);
-  transition: transform 0.3s;
+  transition: transform 0.2s ease-in-out;
   z-index: 3;
   overflow: hidden;
   border-radius: 0.8em;
   outline: 1px solid transparent;
 }
+.projects-list .project > * {
+  pointer-events: none;
+}
 
-.works-list .work:active {
+.projects-list .project .preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projects-list .project:active {
   transform: translate(1px, 1px);
 }
 
-.works-list .work::after {
+.projects-list .project::after {
   content: '';
   position: absolute;
   z-index: 1;
@@ -386,11 +405,11 @@ main {
   background-image: linear-gradient(7.5deg, #fff, #00000000 50%);
 }
 
-.works-list .work:not(:last-child) {
+.projects-list .project:not(:last-child) {
   margin-bottom: 1.5em;
 }
 
-.work-title {
+.project-title {
   font-size: 1.4em;
   font-family: 'Roboto Slab', sans-serif;
   font-weight: 600;
@@ -402,6 +421,105 @@ main {
   text-align: left;
   padding-inline: 0.75em;
   padding-block: 0.25em;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: #00000033;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.2s linear;
+}
+
+.backdrop.hide {
+  opacity: 0;
+}
+
+.modal {
+  color: var(--wax-flower);
+  background-color: var(--blu-wing-teal);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin: 1.5em;
+  padding: 1em;
+  border-radius: 10px;
+  transition: opacity 0.2s linear, transform 0.2s ease-in-out;
+}
+
+.modal.hide {
+  opacity: 0;
+  transform: scale(0.75);
+}
+
+.modal__title {
+  font-size: 2.2em;
+}
+
+.modal__project-screenshot-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: calc((11 / 15) * 100%); /* 15:11 aspect ratio */
+  margin-bottom: 1.25em;
+  overflow: hidden;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  transform: translate(-1px, -1px);
+  animation: pulsate 2s linear infinite alternate;
+}
+
+@keyframes pulsate {
+  from {
+    border-width: 0 2px 2px 0;
+    transform: translate(-1px, -1px);
+  }
+  to {
+    border-width: 0 0 0 0;
+    transform: translate(1px, 1px);
+  }
+}
+
+.modal__project-screenshot-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal__details {
+  position: relative;
+  max-height: 375px;
+}
+
+.details__desc {
+  font-size: 1.5em;
+  font-family: 'Roboto Slab', sans-serif;
+}
+
+.details__more {
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  padding: 0.75em 0 0.375em;
+}
+
+.details__more a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 2em;
+  padding: 0.1em;
+  display: grid;
+  place-items: center;
 }
 
 @media only screen and (min-width: 1024px) {
