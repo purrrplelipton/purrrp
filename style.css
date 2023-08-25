@@ -7,8 +7,8 @@
   font-style: normal;
 }
 @font-face {
-  font-family: 'Roboto Slab';
-  src: url(./assets/fonts/Roboto_Slab/RobotoSlab-ExtraLight.ttf)
+  font-family: 'League Spartan';
+  src: url(./assets/fonts/League_Spartan/LeagueSpartan-ExtraLight.ttf)
     format('truetype');
   font-weight: 200;
   font-display: swap;
@@ -24,8 +24,9 @@
   font-style: normal;
 }
 @font-face {
-  font-family: 'Roboto Slab';
-  src: url(./assets/fonts/Roboto_Slab/RobotoSlab-Regular.ttf) format('truetype');
+  font-family: 'League Spartan';
+  src: url(./assets/fonts/League_Spartan/LeagueSpartan-Regular.ttf)
+    format('truetype');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
@@ -40,8 +41,8 @@
   font-style: normal;
 }
 @font-face {
-  font-family: 'Roboto Slab';
-  src: url(./assets/fonts/Roboto_Slab/RobotoSlab-SemiBold.ttf)
+  font-family: 'League Spartan';
+  src: url(./assets/fonts/League_Spartan/LeagueSpartan-SemiBold.ttf)
     format('truetype');
   font-weight: 600;
   font-display: swap;
@@ -66,6 +67,7 @@
   font-family: 'Outfit', sans-serif;
   font-weight: 400;
   scroll-behavior: smooth;
+  scroll-padding: 10em;
 }
 
 body {
@@ -97,6 +99,11 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+header.header-with-shadow {
+  box-shadow: 0 4px 12px #00000050;
 }
 
 .header__left a {
@@ -129,19 +136,13 @@ header {
   flex-flow: column nowrap;
   align-items: stretch;
   justify-content: center;
-  box-shadow: -100vw 0 100vw rgba(0, 0, 0, 0);
+  box-shadow: -100vw 0 100vw #00000033;
   transition: transform 0.3s, opacity 0.2s;
 }
 
-.visible {
-  transform: translateX(0);
-  box-shadow: -100vw 0 100vw rgba(0, 0, 0, 0.5);
-  opacity: 1;
-}
-
-.hidden {
+.navlist__bar.hide {
   transform: translateX(100%);
-  box-shadow: -100vw 0 100vw rgba(0, 0, 0, 0);
+  box-shadow: -100vw 0 100vw #00000000;
   opacity: 0;
 }
 
@@ -154,7 +155,7 @@ header {
   min-height: 1em;
   min-width: 1em;
   color: var(--saxon-blu);
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #00000000;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -177,7 +178,7 @@ header {
   color: var(--wax-flower);
   background-color: var(--blu-wing-teal);
   font-size: 2.25em;
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: 'League Spartan', sans-serif;
   align-self: center;
   padding: 0.2em 1em 0.3em;
   border-radius: 2.5em;
@@ -191,7 +192,7 @@ header {
   border: 0;
   padding: 0;
   color: inherit;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #00000000;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -375,39 +376,31 @@ main {
 }
 
 .projects-list .project {
+  color: inherit;
+  background-color: var(--blu-wing-teal);
   position: relative;
-  width: 100%;
-  padding-bottom: calc((11 / 15) * 100%);
-  transform: translate(-1px, -1px);
-  transition: transform 0.2s ease-in-out;
-  z-index: 3;
   overflow: hidden;
+  z-index: 3;
+  width: 100%;
+  padding: 0 0 calc((11 / 15) * 100%);
+  transform: translate(0, -1px);
+  transition: transform 0.125s ease-in-out, box-shadow 0.125s ease-in-out;
+  border: 0;
   border-radius: 0.8em;
-  outline: 1px solid transparent;
+  outline: 2px solid transparent;
 }
+
 .projects-list .project > * {
   pointer-events: none;
 }
 
-.projects-list .project .preview {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.projects-list .project:focus {
+  box-shadow: 0 1px 0 1px var(--blu-wing-teal);
 }
 
 .projects-list .project:active {
-  transform: translate(1px, 1px);
-}
-
-.projects-list .project::after {
-  content: '';
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background-image: linear-gradient(7.5deg, #fff, #00000000 50%);
+  transform: translate(0, 1px);
+  box-shadow: 0 1px 0 1px #00000000;
 }
 
 .projects-list .project:not(:last-child) {
@@ -416,28 +409,50 @@ main {
 
 .project-title {
   font-size: 1.4em;
-  font-family: 'Roboto Slab', sans-serif;
+  line-height: 1;
+  font-family: 'League Spartan', sans-serif;
   font-weight: 600;
   position: absolute;
   z-index: 2;
-  right: 0;
   bottom: 0;
   left: 0;
   text-align: left;
-  padding-inline: 0.75em;
-  padding-block: 0.25em;
+  padding: 0.225em 0.375em 0.15em;
+  background-color: var(--wax-flower);
+  border-radius: 0 8px 0 8px;
+  border: 0.1375em solid;
 }
 
-.backdrop {
+.projects-list .project .screenshot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reach_out-section {
+  color: var(--wax-flower);
+}
+
+.reach_out-section h2 {
+  font-size: 3em;
+  margin-bottom: 0.625em;
+}
+
+.modal-backdrop {
   position: fixed;
+  z-index: 9999;
   inset: 0;
+  padding: 3em;
   background-color: #00000033;
   display: grid;
   place-items: center;
   transition: opacity 0.2s linear;
 }
 
-.backdrop.hide {
+.modal-backdrop.hide {
   opacity: 0;
 }
 
@@ -447,7 +462,7 @@ main {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  margin: 1.5em;
+  width: 100%;
   padding: 1em;
   border-radius: 10px;
   transition: opacity 0.2s linear, transform 0.2s ease-in-out;
@@ -463,6 +478,8 @@ main {
 }
 
 .modal__project-screenshot-container {
+  text-decoration: none;
+  color: inherit;
   position: relative;
   width: 100%;
   padding-bottom: calc((11 / 15) * 100%); /* 15:11 aspect ratio */
@@ -470,21 +487,15 @@ main {
   overflow: hidden;
   border-radius: 8px;
   border-style: solid;
-  border-width: 0 2px 2px 0;
-  border-color: #00000000 var(--wax-flower) var(--wax-flower) #00000000;
-  transform: translate(-1px, -1px);
-  animation: pulsate 2s linear infinite alternate;
+  border-width: 0 0 2px 0;
+  border-color: var(--wax-flower);
+  transform: translateY(-1px);
+  transition: transform 0.2s ease-in-out, border-color 0.15s ease-in-out;
 }
 
-@keyframes pulsate {
-  from {
-    border-color: #00000000 var(--wax-flower) var(--wax-flower) #00000000;
-    transform: translate(-1px, -1px);
-  }
-  to {
-    border-color: #00000000 #00000000 #00000000 #00000000;
-    transform: translate(1px, 1px);
-  }
+.modal__project-screenshot-container:active {
+  transform: translateY(1px);
+  border-color: #00000000;
 }
 
 .modal__project-screenshot-container img {
@@ -503,7 +514,7 @@ main {
 
 .details__desc {
   font-size: 1.5em;
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: 'League Spartan', sans-serif;
 }
 
 .details__more {
@@ -541,11 +552,10 @@ main {
     transition: none;
   }
 
-  .visible,
-  .hidden {
-    transform: none;
-    opacity: 1;
-    box-shadow: none;
+  .hide {
+    transform: none !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
   }
 
   .navlist__bar a {
@@ -556,5 +566,11 @@ main {
   #show-nav,
   #hide-nav {
     display: none;
+  }
+
+  .projects-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em 3.5em;
   }
 }

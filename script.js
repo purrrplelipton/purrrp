@@ -1,131 +1,283 @@
-const { log } = console;
+document.addEventListener('DOMContentLoaded', () => {
+  const { log } = console;
 
-/*  */
+  /*  */
 
-const showNav = document.getElementById('show-nav');
-const hideNav = document.getElementById('hide-nav');
-const navList = document.querySelector('.navlist__bar');
+  window.addEventListener('scroll', () => {
+    const mainHeader = document.querySelector('header');
+    if (window.scrollY >= window.innerHeight - 104)
+      mainHeader.classList.add('header-with-shadow');
+    else mainHeader.classList.remove('header-with-shadow');
+  });
 
-function hideNavBar() {
-  navList.classList.add('hidden');
-  document.body.classList.toggle('restrict');
-}
+  const backdrop = document.createElement('div');
 
-showNav.addEventListener('click', () => {
-  navList.classList.remove('hidden');
-  document.body.classList.toggle('restrict');
-});
+  const showNav = document.getElementById('show-nav');
+  const hideNav = document.getElementById('hide-nav');
+  const navList = document.querySelector('.navlist__bar');
 
-hideNav.addEventListener('click', hideNavBar);
+  function hideNavBar() {
+    navList.classList.add('hide');
+    document.body.classList.remove('restrict');
+  }
 
-const sectionLinks = navList.querySelectorAll('a');
+  hideNav.addEventListener('click', () => hideNavBar());
 
-for (const link of sectionLinks) {
-  link.addEventListener('click', hideNavBar);
-}
+  showNav.addEventListener('click', () => {
+    navList.classList.remove('hide');
+    document.body.classList.add('restrict');
+  });
 
-const cuboid = document.querySelector('.cuboid');
-const faces = cuboid.querySelectorAll('.face');
+  document.addEventListener('click', ({ target }) => {
+    if (!navList.contains(target) && !showNav.contains(target)) {
+      navList.classList.add('hide');
+      document.body.classList.remove('restrict');
+    }
+  });
 
-let angle = 90;
+  const sectionLinks = navList.querySelectorAll('a');
 
-setInterval(() => {
-  cuboid.style.transform = `rotateX(${angle}deg)`;
-  angle += 90;
-}, 5200);
+  sectionLinks.forEach((link) => link.addEventListener('click', hideNavBar));
 
-const backdrop = document.createElement('div');
-backdrop.setAttribute('role', 'presentation');
-backdrop.setAttribute('class', 'backdrop hide');
-backdrop.addEventListener('click', ({ target }) => {
-  modal.classList.toggle('hide');
-  setTimeout(() => {
-    target.removeChild(modal);
-    target.classList.toggle('hide');
+  const cuboid = document.querySelector('.cuboid');
+
+  let angle = 90;
+
+  setInterval(() => {
+    cuboid.style.transform = `rotateX(${angle}deg)`;
+    angle += 90;
+  }, 5200);
+
+  const projectsData = [
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'News Homepage',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'Article Preview Component',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'Advice Generator App',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'Blogr landing Page',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'Calculator App',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'Chat App CSS Illustration',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'Clipboard Landing Page',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'Coding Bootcamp Testimonials Slider',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'Crowdfunding Product Page',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'Easybank Landing page',
+    },
+    {
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
+      id: 'E-commerce Product Page',
+    },
+  ];
+
+  const projectsList = document.querySelector('.projects-list');
+  const projects = projectsList.querySelectorAll('.project');
+
+  function mod(text, mode) {
+    return mode == 'hyph'
+      ? text
+          .toLowerCase()
+          .replace(/\s+/g, '-') // Replace spaces with dashes
+          .replace(/[^\w\-]+/g, '') // Remove any non-word characters except dashes
+          .replace(/\-\-+/g, '-') // Replace multiple dashes with a single dash
+      : mode == 'abbr'
+      ? text
+          .split(' ')
+          .map((word) => word.charAt(0).toLowerCase())
+          .join('')
+      : text;
+  }
+
+  projectsData.forEach((project, i) => {
+    const li = document.createElement('li');
+
+    const button = document.createElement('button');
+    button.setAttribute('type', 'button');
+    button.setAttribute('class', 'project');
+    button.classList.add(mod(project.id, 'hyph'));
+    button.dataset.repo = mod(project.id, 'hyph');
+    button.dataset.description = project.description;
+    button.setAttribute('data-live-URL', `tobiii-${mod(project.id, 'abbr')}`);
+
+    const img = document.createElement('img');
+    img.setAttribute('class', 'screenshot');
+    img.setAttribute('src', `./assets/images/works/work_${i + 3}.webp`);
+    img.setAttribute(
+      'alt',
+      `A desktop preview image of a ${project.id} project`,
+    );
+
+    const span = document.createElement('span');
+    span.setAttribute('class', 'project-title');
+    span.textContent = project.id;
+
+    button.appendChild(img);
+    button.appendChild(span);
+    li.appendChild(button);
+    projectsList.appendChild(li);
+  });
+
+  function closeModal() {
+    modal.classList.add('hide');
     setTimeout(() => {
-      document.body.classList.toggle('restrict');
-      document.body.removeChild(target);
+      modal_backdrop.classList.add('hide');
+      document.body.classList.remove('restrict');
+      setTimeout(() => {
+        modal_backdrop.removeChild(modal);
+        modal_backdrop.classList.add('hide');
+        setTimeout(() => {
+          document.body.removeChild(modal_backdrop);
+        }, 300);
+      }, 300);
     }, 300);
-  }, 300);
-});
+  }
 
-const modal = document.createElement('section');
-modal.setAttribute('class', 'modal hide');
-modal.addEventListener('click', (e) => e.stopPropagation());
+  let modal_backdrop = backdrop.cloneNode();
+  modal_backdrop.setAttribute('role', 'presentation');
+  modal_backdrop.setAttribute('class', 'modal-backdrop hide');
+  modal_backdrop.addEventListener('click', () => closeModal());
 
-let title = document.createElement('h2');
-title.setAttribute('class', 'modal__title');
+  const modal = document.createElement('section');
+  modal.setAttribute('class', 'modal hide');
+  modal.addEventListener('click', (e) => e.stopPropagation());
+  modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' || e.keyCode === 9) {
+      const focusableElements = modal.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      );
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
 
-const screenshotContainer = document.createElement('div');
-screenshotContainer.setAttribute(
-  'class',
-  'modal__project-screenshot-container',
-);
+      if (e.shiftKey && document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    } else if (e.key === 'Escape' || e.keyCode === 27) closeModal();
+  });
 
-let screenshot = document.createElement('img');
-screenshot.setAttribute('src', '');
-screenshot.setAttribute('alt', '');
+  let title = document.createElement('h2');
+  title.setAttribute('class', 'modal__title');
 
-screenshotContainer.appendChild(screenshot);
+  const link = document.createElement('a');
+  link.setAttribute('target', '_blank');
+  link.setAttribute('rel', 'noopener noreferrer');
 
-const details = document.createElement('div');
-details.setAttribute('class', 'modal__details');
+  const screenshotContainer = link.cloneNode();
+  screenshotContainer.setAttribute('href', '');
+  screenshotContainer.setAttribute(
+    'class',
+    'modal__project-screenshot-container',
+  );
 
-let desc = document.createElement('p');
-desc.setAttribute('class', 'details__desc');
+  let screenshot = document.createElement('img');
+  screenshot.setAttribute('src', '');
+  screenshot.setAttribute('alt', '');
 
-const repo$preview = document.createElement('div');
-repo$preview.setAttribute('class', 'details__more');
+  screenshotContainer.appendChild(screenshot);
 
-const link = document.createElement('a');
-link.setAttribute('target', '_blank');
-link.setAttribute('rel', 'noopener noreferrer');
+  const details = document.createElement('div');
+  details.setAttribute('class', 'modal__details');
 
-let repo = link.cloneNode();
-repo.innerHTML = '<i class="fa-brands fa-github"></i>';
+  let desc = document.createElement('p');
+  desc.setAttribute('class', 'details__desc');
 
-let preview = link.cloneNode();
-preview.innerHTML = '<i class="fa-solid fa-link"></i>';
+  const repo$preview = document.createElement('div');
+  repo$preview.setAttribute('class', 'details__more');
 
-[repo, preview].forEach((aTag) => repo$preview.appendChild(aTag));
+  let repo = link.cloneNode();
+  repo.innerHTML = '<i class="fa-brands fa-github"></i>';
 
-[desc, repo$preview].forEach((node) => details.appendChild(node));
+  let preview = link.cloneNode();
+  preview.innerHTML = '<i class="fa-solid fa-link"></i>';
 
-modal.appendChild(title);
-modal.appendChild(screenshotContainer);
-modal.appendChild(details);
+  [repo, preview].forEach((aTag) => repo$preview.appendChild(aTag));
 
-// backdrop.appendChild(modal);
+  [desc, repo$preview].forEach((node) => details.appendChild(node));
 
-const worksSection = document.querySelector('.projects-list');
-const works = worksSection.querySelectorAll('.project');
+  modal.appendChild(title);
+  modal.appendChild(screenshotContainer);
+  modal.appendChild(details);
 
-works.forEach((project) => {
-  project.addEventListener('click', ({ target }) => {
-    // log(target);
-    title.innerHTML = target.querySelector('.project-title').textContent;
-    const { src, alt } = target.querySelector('.preview');
-    screenshot.setAttribute('src', src);
-    screenshot.setAttribute('alt', alt);
-    desc.innerHTML = target.getAttribute('data-description');
-    repo.setAttribute(
-      'href',
-      `https://github.com/purrrplelipton/${target.getAttribute(
-        'data-repository',
-      )}.git/`,
-    );
-    preview.setAttribute(
-      'href',
-      `https://${target.getAttribute('data-live-URL')}.vercel.app/`,
-    );
+  projectsList.addEventListener('click', ({ target }) => {
+    const projectBtn = target.closest('.project');
+    if (projectBtn) {
+      title.textContent =
+        projectBtn.querySelector('.project-title').textContent;
+      screenshotContainer.setAttribute(
+        'href',
+        `https://${projectBtn.getAttribute('data-live-URL')}.vercel.app/`,
+      );
+      const { src, alt } = projectBtn.querySelector('.screenshot');
+      screenshot.setAttribute('src', src);
+      screenshot.setAttribute('alt', alt);
+      desc.textContent = projectBtn.getAttribute('data-description');
+      repo.setAttribute(
+        'href',
+        `https://github.com/purrrplelipton/${projectBtn.getAttribute(
+          'data-repo',
+        )}.git/`,
+      );
+      preview.setAttribute(
+        'href',
+        `https://${projectBtn.getAttribute('data-live-URL')}.vercel.app/`,
+      );
 
-    document.body.appendChild(backdrop);
+      document.body.appendChild(modal_backdrop);
 
-    setTimeout(() => {
-      document.body.classList.toggle('restrict');
-      backdrop.classList.toggle('hide');
-      backdrop.appendChild(modal);
-      setTimeout(() => modal.classList.toggle('hide'), 100);
-    }, 100);
+      setTimeout(() => {
+        document.body.classList.add('restrict');
+        modal_backdrop.classList.remove('hide');
+        modal_backdrop.appendChild(modal);
+        setTimeout(() => {
+          modal.classList.remove('hide');
+          // Set focus to the first focusable element within the modal
+          const firstFocusableElement = modal.querySelector(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+          );
+          if (firstFocusableElement) {
+            firstFocusableElement.focus();
+          }
+        }, 100);
+      }, 100);
+    }
   });
 });
