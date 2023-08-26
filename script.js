@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const { log } = console;
 
   /*  */
@@ -17,20 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const navList = document.querySelector('.navlist__bar');
 
   function hideNavBar() {
-    navList.classList.add('hide');
+    navList.classList.add('no-show');
     document.body.classList.remove('restrict');
   }
 
   hideNav.addEventListener('click', () => hideNavBar());
 
   showNav.addEventListener('click', () => {
-    navList.classList.remove('hide');
+    navList.classList.remove('no-show');
     document.body.classList.add('restrict');
   });
 
   document.addEventListener('click', ({ target }) => {
     if (!navList.contains(target) && !showNav.contains(target)) {
-      navList.classList.add('hide');
+      navList.classList.add('no-show');
       document.body.classList.remove('restrict');
     }
   });
@@ -48,66 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
     angle += 90;
   }, 5200);
 
-  const projectsData = [
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'News Homepage',
-    },
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'Article Preview Component',
-    },
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'Advice Generator App',
-    },
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'Blogr landing Page',
-    },
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'Calculator App',
-    },
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'Chat App CSS Illustration',
-    },
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'Clipboard Landing Page',
-    },
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'Coding Bootcamp Testimonials Slider',
-    },
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'Crowdfunding Product Page',
-    },
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'Easybank Landing page',
-    },
-    {
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.',
-      id: 'E-commerce Product Page',
-    },
-  ];
+  const response = await fetch('./assets/data/projects.json');
+  const { projects: projectsData } = await response.json();
 
   const projectsList = document.querySelector('.projects-list');
-  const projects = projectsList.querySelectorAll('.project');
 
   function mod(text, mode) {
     return mode == 'hyph'
@@ -136,6 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
     button.setAttribute('data-live-URL', `tobiii-${mod(project.id, 'abbr')}`);
 
     const img = document.createElement('img');
+    img.setAttribute('loading', 'lazy');
+    img.setAttribute('decoding', 'async');
     img.setAttribute('class', 'screenshot');
     img.setAttribute('src', `./assets/images/works/work_${i + 3}.webp`);
     img.setAttribute(
@@ -240,12 +186,12 @@ document.addEventListener('DOMContentLoaded', () => {
   projectsList.addEventListener('click', ({ target }) => {
     const projectBtn = target.closest('.project');
     if (projectBtn) {
+      const liveURL = `https://${projectBtn.getAttribute(
+        'data-live-url',
+      )}.vercel.app/`;
       title.textContent =
         projectBtn.querySelector('.project-title').textContent;
-      screenshotContainer.setAttribute(
-        'href',
-        `https://${projectBtn.getAttribute('data-live-URL')}.vercel.app/`,
-      );
+      screenshotContainer.setAttribute('href', liveURL);
       const { src, alt } = projectBtn.querySelector('.screenshot');
       screenshot.setAttribute('src', src);
       screenshot.setAttribute('alt', alt);
@@ -256,10 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'data-repo',
         )}.git/`,
       );
-      preview.setAttribute(
-        'href',
-        `https://${projectBtn.getAttribute('data-live-URL')}.vercel.app/`,
-      );
+      preview.setAttribute('href', liveURL);
 
       document.body.appendChild(modal_backdrop);
 
