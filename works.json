@@ -1,0 +1,24 @@
+{
+  "projects": [
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.",
+      "id": "Static Job Listings"
+    },
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.",
+      "id": "Rest Countries API With Color Theme Switcher"
+    },
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.",
+      "id": "Interractive Comments Section"
+    },
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.",
+      "id": "Multi-step Form"
+    },
+    {
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laudantium quo voluptatum optio rem enim quia ducimus. Molestias magnam voluptatem labore quibusdam sed voluptates assumenda laudantium, ab placeat blanditiis! Facilis.",
+      "id": "Space Tourism Multi-page Website"
+    }
+  ]
+}
